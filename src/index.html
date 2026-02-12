@@ -45,11 +45,11 @@
     <!-- **** Hero Section **** -->
     <section id="hero" class="jumbotron">
       <div class="container">
-        <h1 class="hero-title load-hidden">
-          안녕하세요,<br />
-          본질에 집중하는 풀스택 개발자<br />
-          <span class="text-color-main">윤상현</span> 입니다.
-        </h1>
+<h1 class="hero-title load-hidden">
+  안녕하세요,<br class="hero-br-desktop" />
+  본질에 집중하는 풀스택 개발자<br class="hero-br-desktop" />
+  <span class="text-color-main">윤상현</span> 입니다.
+</h1>
         <p class="hero-cta load-hidden">
           <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">더 알아보기</a>
         </p>
@@ -126,7 +126,7 @@
         <img src="./assets/icons/edu.svg" />
         <div>
           <strong>학력</strong>
-          <span>서울대학교 (컴퓨터공학부)</span>
+          <span>대학교 졸업</span>
         </div>
       </div> -->
 
@@ -194,7 +194,15 @@
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
+                <a
+                  rel="noreferrer"
+                  href="#"
+                  class="js-project-gallery-trigger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectImageModal"
+                  data-images="assets/gridsol/gridsol.jpg"
+                  aria-label="Gridsol 프로젝트 이미지 보기"
+                >
                   <div
                     data-tilt
                     data-tilt-max="4"
@@ -205,7 +213,7 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/Gridsol.jpg"
+                      src="assets/gridsol/gridsol.jpg"
                     />
                   </div>
                 </a>
@@ -221,9 +229,7 @@
                 <h3 class="project-wrapper__text-title">DDIB <br/>실시간 좌석 예매 및 교환 서비스</h3>
                 <div>
                   <p class="mb-4">
-                    Demonstrate in this description the skills of a programmer: such as having commitment, 
-                    having perseverance and accepting alternative solutions. Remember that being a portfolio you are not selling the project, 
-                    you are selling yourself, it reflects the resources used: Frameworks, libraries, platforms, etc.
+                    26.01 ~ 26.02 (6주) <br />
                   </p>
                 </div>
                 <a
@@ -246,7 +252,15 @@
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
+                <a
+                  rel="noreferrer"
+                  href="#"
+                  class="js-project-gallery-trigger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectImageModal"
+                  data-images="assets/ddib/ddib.jpg"
+                  aria-label="DDIB 프로젝트 이미지 보기"
+                >
                   <div
                     data-tilt
                     data-tilt-max="4"
@@ -257,7 +271,7 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/ddib.jpg"
+                      src="assets/ddib/ddib.jpg"
                     />
                   </div>
                 </a>
@@ -273,8 +287,7 @@
                 <h3 class="project-wrapper__text-title">Pollin<br />AI 설문 디지털화 분석 솔루션 </h3>
                 <div>
                   <p class="mb-4">
-                    If the project was collaborative, reflect it in this description, that will demonstrate communication and/or leadership skills. 
-                    Additionally, if you made use of the mastery of a second language, it will reflect on you professionalism.
+                    25.09 ~ 25.12
                   </p>
                 </div>
                 <a
@@ -297,7 +310,15 @@
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="#!" target="_blank">
+                <a
+                  rel="noreferrer"
+                  href="#"
+                  class="js-project-gallery-trigger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectImageModal"
+                  data-images="assets/pollin.png"
+                  aria-label="Pollin 프로젝트 이미지 보기"
+                >
                   <div
                     data-tilt
                     data-tilt-max="4"
@@ -387,9 +408,49 @@
             >Star</a
           >
         </p>
-      </div>
-    </footer> -->
+      -->
     <!-- /END Footer Section -->
+     </div>
+</footer> 
+
+    <div class="modal fade" id="projectImageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">프로젝트 이미지</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div
+              id="projectCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              data-bs-interval="2500"
+            >
+              <div class="carousel-inner" id="projectCarouselInner"></div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#projectCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#projectCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script defer type="module" src="index.js"></script>
   </body>
