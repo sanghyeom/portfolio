@@ -58,6 +58,14 @@ export const targetElements = [
     },
   },
   {
+    element: ".exp-card",
+    animation: {
+      delay: 500,
+      origin: "bottom",
+      interval: 120,
+    },
+  },
+  {
     element: ".contact-wrapper",
     animation: {
       delay: 800,
