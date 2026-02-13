@@ -1,6 +1,7 @@
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import initScrollReveal from "./scripts/scrollReveal";
 import initTiltEffect from "./scripts/tiltAnimation";
+import initHeroMatterStacks from "./scripts/heroMatterStacks";
 import { targetElements, defaultProps } from "./data/scrollRevealConfig";
 import projectFallbackImage from "./assets/project.jpg";
 import gridsolImage from "./assets/gridsol/gridsol.jpg";
@@ -17,6 +18,7 @@ import pollinImage from "./assets/pollin.png";
 
 initScrollReveal(targetElements, defaultProps);
 initTiltEffect();
+initHeroMatterStacks();
 
 const imageAssetMap = {
   "assets/project.jpg": projectFallbackImage,
