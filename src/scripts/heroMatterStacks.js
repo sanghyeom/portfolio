@@ -4,8 +4,6 @@ import {
   Composite,
   Engine,
   Events,
-  Mouse,
-  MouseConstraint,
   Render,
   Runner,
 } from "matter-js";
@@ -17,7 +15,6 @@ const MAX_DPR = 2;
 const WALL_THICKNESS = 80;
 const BOX_HEIGHT = 72;
 const BOX_RADIUS = 10;
-const ICON_INSET = 6;
 const EXTRA_GRAVITY_SCALE = 0.00018;
 
 const BASE_TECH_STACKS = [
@@ -109,6 +106,25 @@ const hexToRgba = (hex, alpha) => {
   const g = parseInt(fullHex.slice(2, 4), 16);
   const b = parseInt(fullHex.slice(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+const drawRoundedRectPath = (context, x, y, width, height, radius) => {
+  const safeRadius = Math.max(0, Math.min(radius, width / 2, height / 2));
+
+  if (typeof context.roundRect === "function") {
+    context.roundRect(x, y, width, height, safeRadius);
+    return;
+  }
+
+  context.moveTo(x + safeRadius, y);
+  context.lineTo(x + width - safeRadius, y);
+  context.quadraticCurveTo(x + width, y, x + width, y + safeRadius);
+  context.lineTo(x + width, y + height - safeRadius);
+  context.quadraticCurveTo(x + width, y + height, x + width - safeRadius, y + height);
+  context.lineTo(x + safeRadius, y + height);
+  context.quadraticCurveTo(x, y + height, x, y + height - safeRadius);
+  context.lineTo(x, y + safeRadius);
+  context.quadraticCurveTo(x, y, x + safeRadius, y);
 };
 
 const debounce = (fn, wait) => {
@@ -231,28 +247,23 @@ const drawLabels = (context, bodies, iconMap) => {
     if (icon) {
       const iconWidth = icon.naturalWidth || icon.width || 1;
       const iconHeight = icon.naturalHeight || icon.height || 1;
-      const iconRatio = iconWidth / iconHeight;
-      const maxWidth = stack.boxWidth - ICON_INSET * 2;
-      const maxHeight = BOX_HEIGHT - ICON_INSET * 2;
+      const scale = Math.max(stack.boxWidth / iconWidth, BOX_HEIGHT / iconHeight);
+      const drawWidth = iconWidth * scale;
+      const drawHeight = iconHeight * scale;
 
-      let drawWidth = maxWidth;
-      let drawHeight = maxHeight;
-
-      if (iconRatio >= 1) {
-        drawHeight = drawWidth / iconRatio;
-        if (drawHeight > maxHeight) {
-          drawHeight = maxHeight;
-          drawWidth = drawHeight * iconRatio;
-        }
-      } else {
-        drawWidth = drawHeight * iconRatio;
-        if (drawWidth > maxWidth) {
-          drawWidth = maxWidth;
-          drawHeight = drawWidth / iconRatio;
-        }
-      }
-
+      context.save();
+      context.beginPath();
+      drawRoundedRectPath(
+        context,
+        -stack.boxWidth / 2,
+        -BOX_HEIGHT / 2,
+        stack.boxWidth,
+        BOX_HEIGHT,
+        BOX_RADIUS - 1
+      );
+      context.clip();
       context.drawImage(icon, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+      context.restore();
     }
     context.restore();
   });
@@ -271,7 +282,7 @@ async function setupScene(heroElement, layerElement) {
   );
 
   const engine = Engine.create();
-  engine.gravity.y = 0.95;
+  engine.gravity.y = 1.1;
 
   const render = Render.create({
     element: layerElement,
@@ -288,6 +299,8 @@ async function setupScene(heroElement, layerElement) {
   Render.setPixelRatio(render, Math.min(window.devicePixelRatio || 1, MAX_DPR));
   render.canvas.setAttribute("aria-hidden", "true");
   render.canvas.setAttribute("role", "presentation");
+  render.canvas.style.pointerEvents = "none";
+  render.canvas.style.cursor = "default";
 
   const stacks = buildStacks(render.context, iconMap);
   const techBodies = buildQueue(stacks).map((stack, index) =>
@@ -296,26 +309,6 @@ async function setupScene(heroElement, layerElement) {
 
   let walls = createWalls(width, height);
   Composite.add(engine.world, [...walls, ...techBodies]);
-
-  const mouse = Mouse.create(render.canvas);
-  const syncMouseScale = () => {
-    const pixelRatio = render.options.pixelRatio || 1;
-    Mouse.setScale(mouse, { x: 1 / pixelRatio, y: 1 / pixelRatio });
-    Mouse.setOffset(mouse, { x: 0, y: 0 });
-  };
-  syncMouseScale();
-  const mouseConstraint = MouseConstraint.create(engine, {
-    mouse,
-    constraint: {
-      stiffness: 0.18,
-      damping: 0.1,
-      render: { visible: false },
-    },
-  });
-
-  Composite.add(engine.world, mouseConstraint);
-  render.mouse = mouse;
-  render.canvas.style.pointerEvents = "auto";
 
   const runner = Runner.create();
   const onAfterRender = () => drawLabels(render.context, techBodies, iconMap);
@@ -332,17 +325,8 @@ async function setupScene(heroElement, layerElement) {
     });
   };
 
-  const setGrabCursor = () => {
-    render.canvas.style.cursor = "grabbing";
-  };
-  const setIdleCursor = () => {
-    render.canvas.style.cursor = "grab";
-  };
-
   Events.on(render, "afterRender", onAfterRender);
   Events.on(engine, "beforeUpdate", onBeforeUpdate);
-  Events.on(mouseConstraint, "startdrag", setGrabCursor);
-  Events.on(mouseConstraint, "enddrag", setIdleCursor);
 
   Render.run(render);
   Runner.run(runner, engine);
@@ -359,7 +343,6 @@ async function setupScene(heroElement, layerElement) {
 
     Render.setSize(render, nextWidth, nextHeight);
     Render.setPixelRatio(render, Math.min(window.devicePixelRatio || 1, MAX_DPR));
-    syncMouseScale();
 
     walls.forEach((wall) => Composite.remove(engine.world, wall));
     walls = createWalls(nextWidth, nextHeight);
@@ -393,8 +376,6 @@ async function setupScene(heroElement, layerElement) {
 
     Events.off(render, "afterRender", onAfterRender);
     Events.off(engine, "beforeUpdate", onBeforeUpdate);
-    Events.off(mouseConstraint, "startdrag", setGrabCursor);
-    Events.off(mouseConstraint, "enddrag", setIdleCursor);
     Runner.stop(runner);
     Render.stop(render);
     Composite.clear(engine.world, false, true);
