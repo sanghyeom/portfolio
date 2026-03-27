@@ -75,10 +75,10 @@
     }
     @include respond(tab-port) {
       font-size: 3.6rem;
-      text-align: center;
+      // text-align: center;
     }
     @include respond(phone) {
-      font-size: clamp(2.4rem, 8vw, 3.2rem);
+      font-size: clamp(2.4rem, 8vw, 3rem);
       line-height: 1.5;
     }
     @include respond(phone-xs) {
