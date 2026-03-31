@@ -1,28 +1,20 @@
-<!--
-  Hello!
-  -
-  Simplefolio is a clean and responsive portfolio template for Developers!
-  Created by Jacobo Martinez.
-  -
-  Github Repo: https://github.com/cobiwave/simplefolio/
-  Readme: https://github.com/cobiwave/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
--->
 <!DOCTYPE html>
-<html lang="en" class="sr">
+<html lang="ko" class="sr">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Todo: put here your site title -->
-    <title>[Yun Sanghyeon] | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+    <title>윤상현 | Portfolio</title>
+    <meta
+      name="keywords"
+      content="윤상현, 포트폴리오, 엔지니어, React, Spring, JavaScript, Python, Unity"
+    />
+    <meta
+      name="description"
+      content="현장을 이해하고 시스템으로 개선하는 엔지니어 윤상현의 포트폴리오입니다."
+    />
 
     <link
       rel="stylesheet"
@@ -33,12 +25,7 @@
       defer
       src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
     ></script>
-
-    <!-- Todo: remove the below script once you finish your portfolio -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
-
-  <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
   <body>
     <div id="top"></div>
 
@@ -68,6 +55,7 @@
           <li class="hero-tech-fallback__item">SQL</li>
           <li class="hero-tech-fallback__item">Django</li>
           <li class="hero-tech-fallback__item">HTML5</li>
+          <li class="hero-tech-fallback__item">Unity</li>
         </ul>
       </div>
     </section>
@@ -250,6 +238,26 @@
                     대응 및 안정화 경험을 축적했습니다.
                   </p>
                 </div>
+                <ul class="project-stack" aria-label="Gridsol 사용 기술">
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/gridsol_icon.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>LS GridSol SCADA</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/lookout_icon.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>NI Lookout</span>
+                  </li>
+                </ul>
                 <!-- <a
                   rel="noreferrer"
                   target="_blank"
@@ -320,6 +328,37 @@
                 <div>
                   <p class="mb-4">26.02 ~ 26.03</p>
                 </div>
+                <ul class="project-stack" aria-label="Mannequin 사용 기술">
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/unity.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Unity</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/photon.jpg"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Photon</span>
+                  </li>
+                </ul>
+                <ul class="project-wrapper__list">
+                  <li>
+                    Unity 기반 멀티플레이 공포 게임에서 인프라를 중심으로 로비, 로딩, 참가 흐름 안정화를 함께 담당했습니다.
+                  </li>
+                  <li>
+                    Photon Fusion 방 생성·참가·종료 흐름과 역할별 로딩 화면을 연결해 플레이 진입 과정을 매끄럽게 구성했습니다.
+                  </li>
+                  <li>
+                    GitLab CI와 Unity 실행 환경까지 정비해 팀의 빌드, 테스트, 운영 흐름 안정성을 높였습니다.
+                  </li>
+                </ul>
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -354,7 +393,7 @@
                   class="js-project-gallery-trigger"
                   data-bs-toggle="modal"
                   data-bs-target="#projectImageModal"
-                  data-images="assets/MannequinArtwork"
+                  data-images="assets/MannequinArtwork.png"
                   aria-label="Mannequin 프로젝트 이미지 보기"
                 >
                   <div
@@ -383,19 +422,84 @@
                   DDIB <br />실시간 좌석 예매 및 교환 서비스
                 </h3>
                 <div>
-                  <p class="mb-4">26.01 ~ 26.02 (6주) <br /></p>
+                  <p class="mb-4">26.01 ~ 26.02 (6주) <br /> </p>
                 </div>
-                <div>
-                <li>
-                  프론트엔드 담당으로서 좌석 예매/교환 서비스의 주요 화면과 사용자 흐름을 구현했습니다.
-                </li>
-                <li>
-                  좌석 상태 확인, 선택, 예매 진행 과정이 끊기지 않도록 UI와 API 연동 구조를 구성했습니다.
-                </li>
-                <li>
-                  테스트 과정에서 즉시 수정이 필요한 기능과 화면 연결 이슈를 대응하며 서비스 안정성을 높였습니다.
-                </li>
-                </div>
+                <ul class="project-stack" aria-label="DDIB 사용 기술">
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/javascript.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>JavaScript</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/react.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>React</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/vite.jpg"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Vite</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/java.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Java</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/springboot.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Spring</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/Redis.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Redis</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/Apache_Kafka.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Kafka</span>
+                  </li>
+                </ul>
+                <ul class="project-wrapper__list">
+                  <li>
+                    프론트엔드 담당으로서 좌석 예매/교환 서비스의 주요 화면과 사용자 흐름을 구현했습니다.
+                  </li>
+                  <li>
+                    좌석 상태 확인, 선택, 예매 진행 과정이 끊기지 않도록 UI와 API 연동 구조를 구성했습니다.
+                  </li>
+                  <li>
+                    테스트 과정에서 즉시 수정이 필요한 기능과 화면 연결 이슈를 대응하며 서비스 안정성을 높였습니다.
+                  </li>
+                </ul>
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -454,6 +558,55 @@
                 <div>
                   <p class="mb-4">25.09 ~ 25.12</p>
                 </div>
+                <ul class="project-stack" aria-label="Pollin 사용 기술">
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/python.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Python</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/openai.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>OpenAI API</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/django.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Django</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="assets/tech-icons/vue.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Vue.js</span>
+                  </li>
+                </ul>
+                <ul class="project-wrapper__list">
+                  <li>
+                    AI 기반 설문 디지털화 서비스에서 데이터 입력부터 분석 결과 확인까지 이어지는 사용자 흐름을 구현했습니다.
+                  </li>
+                  <li>
+                    OpenAI, Django, Vue 기반 기능을 연결해 설문 내용을 구조화하고 결과를 빠르게 확인할 수 있도록 구성했습니다.
+                  </li>
+                  <li>
+                    반복 입력과 해석 부담을 줄이는 방향으로 화면과 기능을 정리해 실사용 편의성을 높였습니다.
+                  </li>
+                </ul>
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -517,7 +670,7 @@
             rel="noreferrer"
             target="_blank"
             class="cta-btn cta-btn--resume"
-            href="mailto:sangbot96@gemail.com"
+            href="mailto:sangbot96@gmail.com"
             >이메일 보내기</a
           >
         </div>
@@ -549,33 +702,7 @@
 
         <hr />
 
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
-        <p class="footer__text">Based on Simplefolio template</p>
-
-        <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
-        <!-- <p class="mt-3 pt-3">
-          <a
-            rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio/fork"
-            data-icon="octicon-repo-forked"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork ntkme/github-buttons on GitHub"
-            >Fork</a
-          >
-          <a
-            rel="noreferrer" 
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star cobiwave/simplefolio on GitHub"
-            >Star</a
-          >
-        </p>
-      -->
+        <p class="footer__text">Built on Simplefolio</p>
         <!-- /END Footer Section -->
       </div>
     </footer>
