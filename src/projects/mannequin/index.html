@@ -35,14 +35,16 @@
               <span class="project-detail-eyebrow">Project Detail</span>
               <h1>Mannequin [The Haunted Mall]</h1>
               <p class="project-detail-summary">
-                Unity와 Photon Fusion 기반 3D 비대칭 PvP 호러 게임에서
-                로비, 로딩, 방 참가 흐름과 빌드 운영 환경을 정비한 프로젝트입니다.
+                Photon Fusion 기반 3D 비대칭 PvP 호러 게임으로, Dead by
+                Daylight에서 착안한 구조에 증강 시스템을 더해 짧은 플레이타임
+                안에서도 긴장감과 몰입감을 높이는 경험을 목표로 한 프로젝트입니다.
               </p>
 
               <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
                 <li>기간: 2026.02 ~ 2026.03</li>
-                <li>역할: 인프라 및 멀티플레이 흐름 안정화</li>
-                <li>기술: Unity, Photon Fusion, GitLab CI</li>
+                <li>역할: 인프라 주 담당, UI 부 담당</li>
+                <li>핵심 기여: 세션 흐름, 로딩 경험, CI 운영 정리</li>
+                <li>기술: Unity, Photon Fusion, GitLab Runner, Mattermost</li>
               </ul>
 
               <div class="project-detail-actions">
@@ -79,25 +81,96 @@
       <section class="project-detail-section">
         <div class="container">
           <div class="project-detail-section__grid">
-            <article class="project-detail-card">
-              <h2>기여 내용</h2>
-              <ul class="project-detail-list">
-                <li>
-                  Unity 기반 멀티플레이 공포 게임에서 인프라를 중심으로 로비,
-                  로딩, 참가 흐름 안정화를 담당했습니다.
-                </li>
-                <li>
-                  Photon Fusion 방 생성, 참가, 종료 흐름과 역할별 로딩 화면을
-                  연결해 플레이 진입 과정을 매끄럽게 구성했습니다.
-                </li>
-                <li>
-                  GitLab CI와 Unity 실행 환경까지 정비해 팀의 빌드, 테스트,
-                  운영 흐름 안정성을 높였습니다.
-                </li>
-              </ul>
+            <article class="project-detail-card project-detail-card--wide">
+              <h2>내 역할 / 기여도</h2>
+              <div class="project-detail-copy">
+                <p>
+                  인프라를 주 담당하고 UI를 부 담당하며, 팀이 안정적으로
+                  개발·검증·플레이할 수 있는 기반을 정비하는 데 집중했습니다.
+                </p>
+                <p>
+                  GitLab Runner, Unity 라이선스, CI 검증 환경을 EC2에서 먼저
+                  점검해 원격 저장소 기준으로 충돌과 실행 이슈를 빠르게 확인할 수
+                  있도록 정리했고, Mattermost 웹훅을 활용해 브랜치별 커밋 현황을
+                  아침·저녁으로 공유하는 협업 자동화 흐름도 구성했습니다.
+                </p>
+                <p>
+                  동시에 Photon Fusion 기반의 세션 생성·참가·종료 흐름, Join
+                  Room, 역할별 LoadingScene을 함께 다루며 실제 플레이 진입
+                  경험을 다듬었고, 목업 상태의 UI도 사용자 관점에서 다시
+                  정리했습니다.
+                </p>
+              </div>
             </article>
 
-            <aside class="project-detail-card">
+            <article class="project-detail-card">
+              <h2>가장 집중한 문제</h2>
+              <div class="project-detail-copy">
+                <p>
+                  가장 집중한 문제는 짧은 개발 기간 안에서도 실제 플레이가 가능한
+                  수준의 멀티플레이 흐름을 안정적으로 만드는 것이었습니다.
+                </p>
+                <p>
+                  특히 플레이어가 화면에서 인지하는 상태와 실제 네트워크 세션
+                  상태가 어긋나는 지점을 중요하게 봤습니다. 방을 나갔다고
+                  느끼지만 세션이 남아 있거나, 참가 중인지 로딩 중인지 알기 어려운
+                  흐름은 단순한 UI 문제가 아니라 멀티플레이 경험 전체를 흔드는
+                  구조 문제라고 판단했습니다.
+                </p>
+                <p>
+                  또한 게임 규모와 향후 에셋 확장을 고려해 Addressables 기반
+                  패치 및 버전 확인 로직도 검토하며, 초기 구조 단계에서 운영
+                  가능성까지 함께 고민했습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-detail-card">
+              <h2>왜 그 방식으로 풀었는지</h2>
+              <div class="project-detail-copy">
+                <p>
+                  짧은 기간 안에 직접 서버를 두고 운영하는 방식보다, 프로젝트
+                  규모와 개발 속도에 맞는 Photon Fusion Host Mode가 더
+                  현실적이라고 판단했습니다.
+                </p>
+                <p>
+                  또한 멀티플레이에서는 기능이 한 번 동작하는 것보다 세션 시작과
+                  종료가 일관된 기준으로 연결되는 구조가 더 중요하다고 봤습니다.
+                  그래서 화면만 수정하기보다 세션 생명주기, 씬 전환 순서, 상태
+                  피드백을 함께 정리했고, 로딩 오버레이와 역할별 진입 흐름을 통해
+                  사용자가 현재 상태를 직관적으로 이해할 수 있도록 구성했습니다.
+                </p>
+                <p>
+                  Addressables 역시 도입 가능성을 검토했지만, 남은 기간과
+                  안정성을 함께 고려해 핵심 플레이 경험을 우선 완성하는 방향으로
+                  우선순위를 조정했습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-detail-card project-detail-card--wide">
+              <h2>결과 / 배운 점</h2>
+              <div class="project-detail-copy">
+                <p>
+                  그 결과 로비에서 게임 시작 후 인게임으로 넘어가는 흐름을
+                  단순한 화면 전환이 아니라 상태가 보이는 경험으로 다듬을 수
+                  있었고, GitLab Runner와 Unity 라이선스 운영 기준도 문서화해
+                  팀의 검증 루틴을 반복 가능한 형태로 정리할 수 있었습니다.
+                </p>
+                <p>
+                  이 프로젝트를 통해 멀티플레이에서는 개별 기능 구현보다 세션
+                  생명주기 설계, 상태 피드백, 협업 운영 기준 정리를 함께 보는
+                  시야가 중요하다는 점을 배웠습니다.
+                </p>
+                <p>
+                  또한 처음 접하는 Unity와 C# 환경에서도 구조를 작게 나누고
+                  우선순위를 분명히 잡으면, 제한된 시간 안에서도 실제 플레이
+                  가능한 결과물까지 연결할 수 있다는 자신감을 얻었습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-detail-card project-detail-card--wide">
               <h2>사용 기술</h2>
               <ul class="project-stack" aria-label="Mannequin 사용 기술">
                 <li class="project-stack__item">
@@ -119,15 +192,44 @@
                   <span>Photon Fusion</span>
                 </li>
                 <li class="project-stack__item project-stack__item--text">
-                  <span>GitLab CI</span>
+                  <span>GitLab Runner</span>
+                </li>
+                <li class="project-stack__item project-stack__item--text">
+                  <span>Mattermost Webhook</span>
+                </li>
+                <li class="project-stack__item project-stack__item--text">
+                  <span>EC2</span>
+                </li>
+                <li class="project-stack__item project-stack__item--text">
+                  <span>Addressables 검토</span>
                 </li>
               </ul>
-
               <p class="project-detail-note">
-                썸네일 모달 대신 별도 상세 페이지로 분리해서 프로젝트 소개,
-                이미지, 링크를 한 화면에 정리했습니다.
+                인프라와 협업 운영, 세션 흐름, 로딩 UX를 함께 다룬 프로젝트라
+                기술 스택도 플레이 경험과 운영 경험을 같이 보여줄 수 있도록
+                구성했습니다.
               </p>
-            </aside>
+            </article>
+          </div>
+
+          <div class="project-detail-section__grid">
+            <article class="project-detail-card project-detail-card--wide">
+              <h2>핵심 포인트</h2>
+              <ul class="project-detail-list">
+                <li>
+                  세션 생성·참가·종료 흐름을 UI 현상으로만 보지 않고, 실제
+                  네트워크 생명주기와 연결된 구조 문제로 해석했습니다.
+                </li>
+                <li>
+                  Join Room과 LoadingScene은 단순 화면이 아니라 사용자가 현재
+                  상태를 이해할 수 있는 피드백 장치로 설계했습니다.
+                </li>
+                <li>
+                  CI와 Unity 라이선스 운영은 일회성 셋업보다 반복 가능한 검증
+                  기준을 만드는 데 초점을 맞췄습니다.
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
