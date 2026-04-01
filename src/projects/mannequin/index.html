@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../assets/favicon.png"
+    />
+    <title>Mannequin | 윤상현 Portfolio</title>
+    <meta
+      name="description"
+      content="Mannequin [The Haunted Mall] 프로젝트 상세 페이지입니다."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../styles.scss" />
+  </head>
+  <body class="project-detail-page">
+    <main>
+      <section class="project-detail-hero">
+        <div class="container">
+          <a class="project-detail-back" href="../../index.html#projects">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            포트폴리오로 돌아가기
+          </a>
+
+          <div class="project-detail-hero__grid">
+            <div class="project-detail-hero__content">
+              <span class="project-detail-eyebrow">Project Detail</span>
+              <h1>Mannequin [The Haunted Mall]</h1>
+              <p class="project-detail-summary">
+                Unity와 Photon Fusion 기반 3D 비대칭 PvP 호러 게임에서
+                로비, 로딩, 방 참가 흐름과 빌드 운영 환경을 정비한 프로젝트입니다.
+              </p>
+
+              <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
+                <li>기간: 2026.02 ~ 2026.03</li>
+                <li>역할: 인프라 및 멀티플레이 흐름 안정화</li>
+                <li>기술: Unity, Photon Fusion, GitLab CI</li>
+              </ul>
+
+              <div class="project-detail-actions">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--hero"
+                  href="https://www.youtube.com/watch?v=nWaYbLBJMrM"
+                >
+                  마네킹 플레이 영상
+                </a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--hero cta-btn--resume"
+                  href="https://www.youtube.com/watch?v=E8QMF2Ez-2g"
+                >
+                  퇴마사 플레이 영상
+                </a>
+              </div>
+            </div>
+
+            <div class="project-detail-hero__media">
+              <img
+                src="../../assets/MannequinArtwork.png"
+                alt="Mannequin 프로젝트 아트워크"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-detail-section">
+        <div class="container">
+          <div class="project-detail-section__grid">
+            <article class="project-detail-card">
+              <h2>기여 내용</h2>
+              <ul class="project-detail-list">
+                <li>
+                  Unity 기반 멀티플레이 공포 게임에서 인프라를 중심으로 로비,
+                  로딩, 참가 흐름 안정화를 담당했습니다.
+                </li>
+                <li>
+                  Photon Fusion 방 생성, 참가, 종료 흐름과 역할별 로딩 화면을
+                  연결해 플레이 진입 과정을 매끄럽게 구성했습니다.
+                </li>
+                <li>
+                  GitLab CI와 Unity 실행 환경까지 정비해 팀의 빌드, 테스트,
+                  운영 흐름 안정성을 높였습니다.
+                </li>
+              </ul>
+            </article>
+
+            <aside class="project-detail-card">
+              <h2>사용 기술</h2>
+              <ul class="project-stack" aria-label="Mannequin 사용 기술">
+                <li class="project-stack__item">
+                  <img
+                    class="project-stack__icon"
+                    src="../../assets/tech-icons/unity.png"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span>Unity</span>
+                </li>
+                <li class="project-stack__item">
+                  <img
+                    class="project-stack__icon"
+                    src="../../assets/tech-icons/photon.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span>Photon Fusion</span>
+                </li>
+                <li class="project-stack__item project-stack__item--text">
+                  <span>GitLab CI</span>
+                </li>
+              </ul>
+
+              <p class="project-detail-note">
+                썸네일 모달 대신 별도 상세 페이지로 분리해서 프로젝트 소개,
+                이미지, 링크를 한 화면에 정리했습니다.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
