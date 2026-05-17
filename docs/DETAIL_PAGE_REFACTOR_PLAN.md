@@ -2,6 +2,27 @@
 
 작성일: 2026-05-17
 
+적용일: 2026-05-17
+
+## 적용 현황
+
+이 문서의 리팩터링 방향을 기준으로 1차 작업을 반영했습니다.
+
+- 상세 페이지 공통 레이아웃 SCSS 추가
+- `project-detail-layout`, `project-detail-main`, `project-detail-sidebar` 구조 적용
+- 긴 본문은 `Overview / My Role / Problem & Solution / Result` 흐름으로 정리
+- 요약 정보, 기술 스택, 링크는 오른쪽 사이드바 패널로 분리
+- DDIB, Mannequin, Pollin, Gridsol SCADA 상세 페이지에 동일한 구조 적용
+- `npm run build` 검증 완료
+- 개발 서버에서 4개 상세 페이지 `200 OK` 응답 확인
+
+확인 URL:
+
+- `http://localhost:60191/projects/ddib/`
+- `http://localhost:60191/projects/mannequin/`
+- `http://localhost:60191/projects/pollin/`
+- `http://localhost:60191/career/Gridsol_SCADA/`
+
 ## 결론
 
 현재 디테일 페이지는 정보 전달은 충분히 되지만, 메인 페이지와 비교하면 별도의 템플릿처럼 보이는 부분이 있습니다.
