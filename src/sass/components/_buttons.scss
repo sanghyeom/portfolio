@@ -8,6 +8,11 @@
   z-index: 1;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
 
+  &:focus-visible {
+    outline: 3px solid rgba($dark-blue-text, 0.32);
+    outline-offset: 4px;
+  }
+
   &::after {
     content: "";
     display: block;

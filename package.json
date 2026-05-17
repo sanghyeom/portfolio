@@ -1,23 +1,27 @@
 {
-  "name": "simplefolio",
+  "name": "sanghyeon-portfolio",
   "version": "1.0.1",
-  "private": "true",
-  "description": "A clean, beautiful and responsive portfolio template for Developers!",
+  "private": true,
+  "description": "윤상현 개인 포트폴리오 정적 웹사이트",
   "scripts": {
     "start": "parcel src/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/Gridsol_SCADA/index.html",
-    "build": "parcel build src/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/Gridsol_SCADA/index.html --public-url ./"
+    "build": "parcel build src/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/Gridsol_SCADA/index.html --public-url ./ --no-cache"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobiwave/simplefolio"
+    "url": "git+https://github.com/sanghyeom/portfolio.git"
   },
-  "keywords": [],
-  "author": "Jacobo Martinez",
+  "keywords": [
+    "portfolio",
+    "static-site",
+    "parcel"
+  ],
+  "author": "윤상현",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cobiwave/simplefolio/issues"
+    "url": "https://github.com/sanghyeom/portfolio/issues"
   },
-  "homepage": "https://sanghyeom.github.io/portfolio/",
+  "homepage": "https://sanghyeon.site/",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
     "parcel": "^2.8.2",

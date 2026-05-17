@@ -1,360 +1,75 @@
-# Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobiwave/simplefolio?color=blue)](https://github.com/cobiwave/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobiwave/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobiwave/simplefolio)
+# 윤상현 Portfolio
 
-## A minimal portfolio template for Developers!
+개인 포트폴리오용 정적 웹사이트입니다. 현장 경험, 교육 이력, 프로젝트 상세 페이지, 연락 정보를 한 페이지 중심으로 보여주고, 각 프로젝트는 별도 상세 페이지에서 설명합니다.
 
-<h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
-  <br>
-</h2>
+배포 주소: https://sanghyeon.site/
 
-## Features
-
-⚡️ Modern UI Design + Reveal Animations\
-⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Parcel\
-⚡️ Well organized documentation
-
-To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
-
----
-
-## Why do you need a portfolio? ☝️
-
-- Professional way to showcase your work
-- Increases your visibility and online presence
-- Shows you’re more than just a resume
-
-## Getting Started 🚀
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites 📋
-
-You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
-
-```
-node@v16.4.2 or higher
-npm@7.18.1 or higher
-git@2.30.1 or higher
-```
-
-Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
-
-```
-yarn@v1.22.10 or higher
-```
-
----
-
-## How To Use 🔧
-
-From your command line, first clone Simplefolio:
+## 실행
 
 ```bash
-# Clone the repository
-$ git clone https://github.com/cobiwave/simplefolio
-
-# Move into the repository
-$ cd simplefolio
-
-# Remove the current origin repository
-$ git remote remove origin
+npm ci
+npm start
 ```
 
-After that, you can install the dependencies either using NPM or Yarn.
+로컬 개발 서버는 Parcel 기본 포트인 `http://localhost:1234/`에서 실행됩니다.
 
-Using NPM: Simply run the below commands.
+## 빌드
 
 ```bash
-# 2022 Update - Fix Dependencies
-$ npm audit fix
-$ npm i @parcel/transformer-sass
-
-# Install dependencies
-$ npm install
-
-# Start the development server
-$ npm start
+npm run build
 ```
 
-Using Yarn: Be aware of that you'll need to delete the `package-lock.json` file before executing the below commands.
+빌드 결과는 `dist/`에 생성됩니다.
 
-```bash
-# Install dependencies
-$ yarn
+## 구조
 
-# Start the development server
-$ yarn start
+```text
+src/
+  index.html
+  index.js
+  styles.scss
+  assets/
+  scripts/
+  sass/
+  projects/
+    mannequin/
+    ddib/
+    pollin/
+  career/
+    Gridsol_SCADA/
 ```
 
-**NOTE**:
-If your run into issues installing the dependencies with NPM, use this below command:
+주요 수정 위치:
 
-```bash
-# Install dependencies with all permissions
-$ sudo npm install --unsafe-perm=true --allow-root
-```
+- 메인 페이지 콘텐츠: `src/index.html`
+- 프로젝트 상세 페이지: `src/projects/*/index.html`
+- 커리어 상세 페이지: `src/career/Gridsol_SCADA/index.html`
+- 공통 스타일 진입점: `src/styles.scss`
+- 섹션별 스타일: `src/sass/sections/`
+- 히어로 애니메이션: `src/scripts/heroMatterStacks.js`
 
-Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
+## 배포
 
-<h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
-</h2>
+`master` 브랜치에 push하면 GitHub Actions가 다음 순서로 배포합니다.
 
----
+1. Node.js 버전을 `.nvmrc` 기준으로 설정
+2. `npm ci`로 의존성 설치
+3. `npm run build` 실행
+4. `CNAME`을 `dist/CNAME`으로 복사
+5. `dist/`를 GitHub Pages로 배포
 
-## Template Instructions:
+커스텀 도메인은 `CNAME`의 `sanghyeon.site`를 기준으로 유지합니다.
 
-### Step 1 - STRUCTURE
+## 이미지 관리
 
-Go to `/src/index.html` and put your information, there are 5 sections:
+페이지에서 직접 사용하는 큰 이미지는 WebP 파일을 우선 참조합니다. 원본 PNG/JPG는 보존하되, 실제 배포 번들에는 참조된 파일만 포함되도록 관리합니다.
 
-### (1) Hero Section
+큰 스크린샷을 추가할 때는 다음 기준을 권장합니다.
 
-- On `.hero-title`, put your custom portfolio title.
-- On `.hero-cta`, put your custom button label.
+- 썸네일/대표 이미지: WebP 변환
+- 상세 갤러리 이미지: 가로 1400px 내외로 리사이즈
+- 원본 보관이 필요하면 별도 디렉터리에 보존
 
-```html
-<!-- **** Hero Section **** -->
-<section id="hero" class="jumbotron">
-  <div class="container">
-    <h1 class="hero-title load-hidden">
-      Hi, my name is <span class="text-color-main">Your Name</span>
-      <br />
-      I'm the Unknown Developer.
-    </h1>
-    <p class="hero-cta load-hidden">
-      <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">
-        Know more
-      </a>
-    </p>
-  </div>
-</section>
-<!-- /END Hero Section -->
-```
+## 참고
 
-### (2) About Section
-
-- On `<img>` tag, fill the `src` property with your profile picture path, your picture must be located inside `/src/assets/` folder.
-- On `<p>` tag with class name `.about-wrapper__info-text`, include information about you, I recommend to put 2 paragraphs in order to work well and a maximum of 3 paragraphs.
-- On last `<a>` tag, include your CV (.pdf) path on `href` property, your resume CV must be located inside `/src/assets/` folder.
-
-```html
-<!-- **** About Section **** -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title load-hidden">About me</h2>
-    <div class="row about-wrapper">
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__image load-hidden">
-          <img
-            alt="Profile Image"
-            class="img-fluid rounded shadow-lg"
-            height="auto"
-            width="300px"
-            src="assets/profile.jpg"
-            alt="Profile Image"
-          />
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__info load-hidden">
-          <p class="about-wrapper__info-text">
-            This is where you can describe about yourself. The more you describe
-            about yourself, the more chances you can!
-          </p>
-          <p class="about-wrapper__info-text">
-            Extra Information about you! like hobbies and your goals.
-          </p>
-          <span class="d-flex mt-3">
-            <a
-              rel="noreferrer"
-              target="_blank"
-              class="cta-btn cta-btn--resume"
-              href="assets/resume.pdf"
-            >
-              View Resume
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /END About Section -->
-```
-
-### (3) Projects Section
-
-- Each project lives inside a `row`.
-- On `<h3>` tag with class name `.project-wrapper__text-title`, include your project title.
-- On `<p>` tag with `loremp ipsum` text, include your project description.
-- On first `<a>` tag, put your project url on `href` property.
-- On second `<a>` tag, put your project repository url on `href` property.
-
----
-
-- Inside `<div>` tag with class name `.project-wrapper__image`, put your project image url on the `src` of the `<img>` and put again your project url in the `href` property of the `<a>` tag.
-- Recommended size for project image (1366 x 767), your project image must be located inside `/src/assets/` folder.
-
-```html
-<!-- **** Projects Section **** -->
-<section id="projects">
-  ...
-  <!-- Notice: each .row is a project -->
-  <div class="row">
-    <div class="col-lg-4 col-sm-12">
-      <div class="project-wrapper__text load-hidden">
-        <h3 class="project-wrapper__text-title">Project Title</h3>
-        <div>
-          <p class="mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-            neque, ipsa animi maiores repellendus distinctio aperiam earum dolor
-            voluptatum consequatur blanditiis inventore debitis fuga numquam
-            voluptate ex architecto itaque molestiae.
-          </p>
-        </div>
-        <a
-          rel="noreferrer"
-          target="_blank"
-          class="cta-btn cta-btn--hero"
-          href="#!"
-        >
-          See Live
-        </a>
-        <a
-          rel="noreferrer"
-          target="_blank"
-          class="cta-btn text-color-main"
-          href="#!"
-        >
-          Source Code
-        </a>
-      </div>
-    </div>
-    <div class="col-lg-8 col-sm-12">
-      <div class="project-wrapper__image load-hidden">
-        <a rel="noreferrer" href="#!" target="_blank">
-          <div
-            data-tilt
-            data-tilt-max="4"
-            data-tilt-glare="true"
-            data-tilt-max-glare="0.5"
-            class="thumbnail rounded js-tilt"
-          >
-            <img
-              alt="Project Image"
-              class="img-fluid"
-              src="assets/project.jpg"
-            />
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /END Project -->
-  ...
-</section>
-```
-
-### (4) Contact Section
-
-- On `<p>` tag with class name `.contact-wrapper__text`, include some custom call-to-action message.
-- On `<a>` tag, put your email address on `href` property.
-
-```html
-<!-- **** Contact Section **** -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-wrapper load-hidden">
-      <p class="contact-wrapper__text">[Put your call to action here]</p>
-      <a
-        rel="noreferrer"
-        target="_blank"
-        class="cta-btn cta-btn--resume"
-        href="mailto:example@email.com"
-        >Call to Action</a
-      >
-    </div>
-  </div>
-</section>
-<!-- /END Contact Section -->
-```
-
-### (5) Footer Section
-
-- Put your Social Media URL on each `href` attribute of the `<a>` tags.
-- If you an additional Social Media account different than Twitter, Linkedin or GitHub, then go to [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) and search for the icon's class name you are looking.
-- You can delete or add as many `<a>` tags your want.
-
-```html
-<footer class="footer navbar-static-bottom">
-  ...
-  <div class="social-links">
-    <a href="#!" target="_blank">
-      <i class="fa fa-twitter fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-linkedin fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-github fa-inverse"></i>
-    </a>
-  </div>
-  ...
-</footer>
-```
-
-### Step 2 - STYLES
-
-Change the color theme of the website - (choose 2 colors to create a gradient)
-
-Go to `/src/sass/abstracts/_variables.scss` and only change the values for this variables `$main-color` and `$secondary-color` with your prefered HEX color.
-If you want to get some gradients inspiration I highly recommend you to check this website [UI Gradient](https://uigradients.com/#BrightVault)
-
-```scss
-// Default values
-$main-color: #02aab0;
-$secondary-color: #00cdac;
-```
-
----
-
-## Deployment 📦
-
-Once you finish your setup. You need to put your website online!
-
-I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
-
-## Others versions 👥
-
-[Gatsby Simplefolio](https://github.com/cobiwave/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobiwave)\
-[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
-
-## Technologies used 🛠️
-
-- [Parcel](https://parceljs.org/) - Bundler
-- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Frontend component library
-- [Sass](https://sass-lang.com/documentation) - CSS extension language
-- [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-- [Tilt.js](https://gijsroge.github.io/tilt.js/) - JavaScript tiny parallax library
-
-## Authors
-
-- **Jacobo Martinez** - [https://github.com/cobiwave](https://github.com/cobiwave)
-
-## Status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a029bfd-575c-41e5-8249-c864d482c2e5/deploy-status)](https://app.netlify.com/sites/the-simplefolio/deploys)
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments 🎁
-
-I was motivated to create this project because I wanted to contribute on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)
+이 프로젝트는 Simplefolio 템플릿을 기반으로 커스터마이즈했습니다.

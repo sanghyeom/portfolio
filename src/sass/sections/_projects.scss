@@ -16,6 +16,43 @@
   color: $dark-blue-text;
 }
 
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: -0.2rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-stack__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 3.6rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba($dark-blue-text, 0.12);
+  border-radius: 999px;
+  background: rgba($secondary-color, 0.08);
+  color: $dark-blue-text;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.project-stack__item--text {
+  background: rgba($dark-blue-text, 0.05);
+}
+
+.project-stack__icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  flex: 0 0 2rem;
+}
+
 #projects,
 #career {
   .project-wrapper {
@@ -55,42 +92,6 @@
 
       & p > a {
         color: $secondary-color;
-      }
-
-      .project-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin: -0.2rem 0 2rem;
-        padding: 0;
-        list-style: none;
-      }
-
-      .project-stack__item {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.8rem;
-        min-height: 3.6rem;
-        padding: 0.8rem 1.2rem;
-        border: 1px solid rgba($dark-blue-text, 0.12);
-        border-radius: 999px;
-        background: rgba($secondary-color, 0.08);
-        color: $dark-blue-text;
-        font-size: 1.3rem;
-        font-weight: 700;
-        line-height: 1;
-        letter-spacing: 0.02em;
-      }
-
-      .project-stack__item--text {
-        background: rgba($dark-blue-text, 0.05);
-      }
-
-      .project-stack__icon {
-        width: 1.8rem;
-        height: 1.8rem;
-        object-fit: contain;
-        flex-shrink: 0;
       }
 
       .project-wrapper__list {
