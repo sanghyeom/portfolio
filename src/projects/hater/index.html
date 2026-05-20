@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../../assets/favicon.png"
+    />
+    <title>Hater | 윤상현 Portfolio</title>
+    <meta
+      name="description"
+      content="Hater WebGL 기반 로그라이크 디펜스 게임 프로젝트 상세 페이지입니다."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../styles.scss" />
+  </head>
+  <body class="project-detail-page">
+    <main>
+      <section class="project-detail-hero">
+        <div class="container">
+          <a class="project-detail-back" href="../../index.html#projects">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            포트폴리오로 돌아가기
+          </a>
+
+          <div class="project-detail-hero__grid">
+            <div class="project-detail-hero__content">
+              <span class="project-detail-eyebrow">Project Detail</span>
+              <h1>Hater</h1>
+              <p class="project-detail-summary">
+                전략적 자원 관리와 로그라이크 해금 요소를 결합해 자연스러운
+                다회차 플레이를 유도하는 WebGL 기반 디펜스 게임입니다.
+              </p>
+
+              <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
+                <li>2026.05</li>
+                <li>Frontend · Infra</li>
+                <li>React · TypeScript · WebGL · AWS</li>
+              </ul>
+            </div>
+
+            <div class="project-detail-hero__media">
+              <img
+                src="../../assets/hater/hater.webp"
+                alt="Hater 프로젝트 대표 이미지"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-detail-section">
+        <div class="container">
+          <div class="project-detail-layout">
+            <div class="project-detail-main">
+              <section class="project-detail-block">
+                <h2>Overview</h2>
+                <div class="project-detail-copy">
+                  <p>
+                    Hater는 직관적인 배치와 전투 시스템을 기반으로 하면서도,
+                    현재 스테이지에서 사용한 자원이 다음 스테이지에 영향을 주도록
+                    설계한 로그라이크 기반 디펜스 게임입니다.
+                  </p>
+                  <p>
+                    탐사/이벤트 선택지와 사령관 시스템을 통해 플레이어가 매 회차
+                    다른 빌드를 구성하고, 리스크와 리턴을 판단하며 다음 스테이지를
+                    준비할 수 있도록 구성했습니다.
+                  </p>
+                </div>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>My Role</h2>
+                <ul class="project-detail-list">
+                  <li>
+                    FE와 Infra를 담당하며 React, TypeScript, Tailwind CSS 기반
+                    서비스 화면과 운영 환경 구성을 함께 맡았습니다.
+                  </li>
+                  <li>
+                    WebGL 게임 빌드를 웹에서 접근할 수 있도록 배포 환경을 구성했습니다.
+                  </li>
+                  <li>
+                    Docker, Nginx, AWS, GitLab Runner 기반 CI/CD 흐름을 정리했습니다.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Game Systems</h2>
+                <ul class="project-detail-list">
+                  <li>
+                    배치와 전투 시스템은 직관적으로 구성하되, 사용한 자원이 다음
+                    스테이지에도 유지되도록 해 자원 관리의 비중을 높였습니다.
+                  </li>
+                  <li>
+                    탐사/이벤트는 낮은 리턴의 안정 선택지와 하이 리스크 하이 리턴
+                    선택지를 함께 제공해 다음 전투 운영 방향을 유저가 결정하게 했습니다.
+                  </li>
+                  <li>
+                    사령관 시스템은 병력 상황과 플레이 스타일에 따라 다른 패시브
+                    효과를 제공해 다회차 빌드 경험을 강화했습니다.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Technical Highlights</h2>
+                <div class="project-detail-copy">
+                  <p>
+                    WebGL 게임 빌드를 통해 별도 설치 없이 접근 가능한 웹 게임
+                    환경을 구축했습니다. 서비스는 AWS, Nginx, Docker, GitLab
+                    CI/CD를 기반으로 배포 흐름을 정리했습니다.
+                  </p>
+                  <p>
+                    게임 내부에서는 빌보드 기법을 활용해 격렬한 카메라 움직임에도
+                    에셋이 항상 정면을 향하도록 처리하고, 디펜스 장르에서 흔하지
+                    않은 1인칭 시점의 분위기를 강화했습니다.
+                  </p>
+                </div>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Result</h2>
+                <div class="project-detail-copy">
+                  <p>
+                    2026년 5월 13일 데모 버전, 5월 18일 정식 버전, 5월 20일
+                    2.0.0 업데이트까지 진행했습니다. API 연결, 정보 공개, 통신
+                    암호화, 밸런스 패치까지 이어지는 운영 흐름을 경험했습니다.
+                  </p>
+                </div>
+              </section>
+
+              <section class="project-detail-block project-detail-gallery">
+                <h2>주요 화면</h2>
+                <div class="project-detail-gallery__grid">
+                  <figure class="project-detail-gallery__item">
+                    <img
+                      src="../../assets/hater/hater_1.webp"
+                      alt="Hater 데모 진입 화면"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure class="project-detail-gallery__item">
+                    <img
+                      src="../../assets/hater/hater_2.webp"
+                      alt="Hater 서비스 대표 화면"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+              </section>
+            </div>
+
+            <aside class="project-detail-sidebar" aria-label="프로젝트 요약">
+              <section class="project-detail-panel">
+                <h2>Summary</h2>
+                <ul class="project-detail-facts">
+                  <li>
+                    <strong>기간</strong>
+                    <span>2026.05</span>
+                  </li>
+                  <li>
+                    <strong>역할</strong>
+                    <span>Frontend, Infra</span>
+                  </li>
+                  <li>
+                    <strong>팀</strong>
+                    <span>Egg Studio</span>
+                  </li>
+                  <li>
+                    <strong>핵심 기여</strong>
+                    <span>WebGL 웹 게임 배포 환경과 CI/CD 흐름 구성</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
+                <h2>Tech Stack</h2>
+                <ul class="project-stack" aria-label="Hater 사용 기술">
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/react.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>React</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>TypeScript</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>Tailwind CSS</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/java.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Java 21</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/springboot.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Spring Boot</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>PostgreSQL</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/Redis.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Redis</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/docker.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Docker</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>Nginx</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>AWS</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>GitLab CI/CD</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
+                <h2>Release</h2>
+                <ul class="project-detail-facts">
+                  <li>
+                    <strong>2026.05.13</strong>
+                    <span>데모 버전 출시 및 테스트 완료</span>
+                  </li>
+                  <li>
+                    <strong>2026.05.18</strong>
+                    <span>정식 버전 출시, API 연결, 밸런스 피드백 획득</span>
+                  </li>
+                  <li>
+                    <strong>2026.05.20</strong>
+                    <span>2.0.0 업데이트, 통신 암호화 및 밸런스 패치</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
+                <h2>Links</h2>
+                <div class="project-detail-links">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--hero"
+                    href="https://eggstudio.ai.kr/games"
+                  >
+                    서비스 보기
+                  </a>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
