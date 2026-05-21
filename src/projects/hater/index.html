@@ -13,7 +13,7 @@
     <title>Hater | 윤상현 Portfolio</title>
     <meta
       name="description"
-      content="Hater WebGL 기반 로그라이크 디펜스 게임 프로젝트 상세 페이지입니다."
+      content="Hater WebGL 로그라이크 디펜스 게임의 프론트엔드, 배포 인프라, 운영 자동화 경험을 정리한 프로젝트 상세 페이지입니다."
     />
     <link
       rel="stylesheet"
@@ -35,12 +35,13 @@
               <span class="project-detail-eyebrow">Project Detail</span>
               <h1>Hater</h1>
               <p class="project-detail-summary">
-                전략적 자원 관리와 로그라이크 해금 요소를 결합해 자연스러운
-                다회차 플레이를 유도하는 WebGL 기반 디펜스 게임입니다.
+                Unity WebGL 게임을 웹 서비스로 제공하기 위해 프론트엔드 화면,
+                API 연동, Docker/Nginx/AWS 배포, GitLab CI/CD 흐름까지 담당한
+                로그라이크 디펜스 게임 프로젝트입니다.
               </p>
 
               <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
-                <li>2026.05</li>
+                <li>2026.04~2026.05</li>
                 <li>Frontend · Infra</li>
                 <li>React · TypeScript · WebGL · AWS</li>
               </ul>
@@ -65,75 +66,119 @@
                 <h2>Overview</h2>
                 <div class="project-detail-copy">
                   <p>
-                    Hater는 직관적인 배치와 전투 시스템을 기반으로 하면서도,
-                    현재 스테이지에서 사용한 자원이 다음 스테이지에 영향을 주도록
-                    설계한 로그라이크 기반 디펜스 게임입니다.
+                    Hater는 스테이지마다 병력 배치, 전투, 탐사 이벤트, 사령관
+                    선택을 반복하며 빌드를 완성해가는 WebGL 기반 로그라이크
+                    디펜스 게임입니다. 플레이어가 현재 스테이지에서 사용한
+                    자원이 다음 스테이지 운영에 영향을 주도록 설계해, 단순한
+                    웨이브 클리어보다 장기적인 자원 판단이 중요하게 작동합니다.
                   </p>
                   <p>
-                    탐사/이벤트 선택지와 사령관 시스템을 통해 플레이어가 매 회차
-                    다른 빌드를 구성하고, 리스크와 리턴을 판단하며 다음 스테이지를
-                    준비할 수 있도록 구성했습니다.
+                    저는 게임 클라이언트 자체보다 웹 서비스로 제공되는 흐름에
+                    집중했습니다. React/TypeScript 기반 화면, 게임 진입 동선,
+                    서버 API 연동, WebGL 빌드 배포 환경을 연결해 사용자가 별도
+                    설치 없이 게임에 접근하고 운영자가 버전을 배포할 수 있는
+                    구조를 만들었습니다.
                   </p>
                 </div>
               </section>
 
               <section class="project-detail-block">
-                <h2>My Role</h2>
+                <h2>My Role & Scope</h2>
                 <ul class="project-detail-list">
                   <li>
-                    FE와 Infra를 담당하며 React, TypeScript, Tailwind CSS 기반
-                    서비스 화면과 운영 환경 구성을 함께 맡았습니다.
+                    프론트엔드와 인프라를 담당하며 React, TypeScript, Tailwind
+                    CSS 기반 서비스 화면과 게임 플레이 진입 흐름을 구현했습니다.
                   </li>
                   <li>
-                    WebGL 게임 빌드를 웹에서 접근할 수 있도록 배포 환경을 구성했습니다.
+                    Unity WebGL 빌드를 웹에서 안정적으로 접근할 수 있도록 정적
+                    리소스 제공, 라우팅, Nginx 설정, Docker 배포 구성을
+                    정리했습니다.
                   </li>
                   <li>
-                    Docker, Nginx, AWS, GitLab Runner 기반 CI/CD 흐름을 정리했습니다.
+                    Spring Boot API, PostgreSQL, Redis와 연동되는 서비스 흐름을
+                    확인하고 GitLab Runner 기반 CI/CD로 데모, 정식, 2.0.0
+                    업데이트 배포 과정을 운영했습니다.
                   </li>
                 </ul>
               </section>
 
               <section class="project-detail-block">
-                <h2>Game Systems</h2>
+                <h2>Architecture Focus</h2>
                 <ul class="project-detail-list">
                   <li>
-                    배치와 전투 시스템은 직관적으로 구성하되, 사용한 자원이 다음
-                    스테이지에도 유지되도록 해 자원 관리의 비중을 높였습니다.
+                    웹 프론트엔드는 게임 소개, 플레이 진입, 정보 공개 화면을
+                    담당하고, WebGL 빌드는 Nginx를 통해 정적 리소스로 제공되도록
+                    구성했습니다.
                   </li>
                   <li>
-                    탐사/이벤트는 낮은 리턴의 안정 선택지와 하이 리스크 하이 리턴
-                    선택지를 함께 제공해 다음 전투 운영 방향을 유저가 결정하게 했습니다.
+                    백엔드는 Spring Boot와 Java 21 기반 API로 구성하고,
+                    PostgreSQL은 영속 데이터, Redis는 빠른 조회와 운영성 보조
+                    영역에 사용했습니다.
                   </li>
                   <li>
-                    사령관 시스템은 병력 상황과 플레이 스타일에 따라 다른 패시브
-                    효과를 제공해 다회차 빌드 경험을 강화했습니다.
+                    Docker 컨테이너, Nginx 리버스 프록시, AWS 서버, GitLab
+                    CI/CD를 연결해 로컬 빌드 결과가 실제 서비스 배포로 이어지는
+                    흐름을 반복 가능하게 만들었습니다.
                   </li>
                 </ul>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Problem & Solution</h2>
+                <div class="project-detail-copy">
+                  <p>
+                    첫 번째 문제는 Unity WebGL 빌드를 일반 웹 페이지처럼 제공할
+                    때 발생하는 리소스 경로, 압축 파일 제공, 라우팅
+                    충돌이었습니다. 게임 빌드와 React 서비스가 같은 도메인에서
+                    동작해야 했기 때문에 Nginx의 정적 파일 제공 범위와
+                    프론트엔드 라우팅 기준을 분리해 게임 진입 실패 가능성을
+                    줄였습니다.
+                  </p>
+                  <p>
+                    두 번째 문제는 짧은 기간 안에 데모, 정식 버전, 2.0.0
+                    업데이트를 이어가야 하는 운영 속도였습니다. 수동 배포에
+                    의존하면 수정 범위와 서버 반영 상태가 쉽게 어긋날 수 있어
+                    Docker 이미지, Nginx 설정, GitLab Runner 배포 단계를
+                    정리하고 반복 가능한 릴리즈 흐름으로 관리했습니다.
+                  </p>
+                </div>
               </section>
 
               <section class="project-detail-block">
                 <h2>Technical Highlights</h2>
-                <div class="project-detail-copy">
-                  <p>
-                    WebGL 게임 빌드를 통해 별도 설치 없이 접근 가능한 웹 게임
-                    환경을 구축했습니다. 서비스는 AWS, Nginx, Docker, GitLab
-                    CI/CD를 기반으로 배포 흐름을 정리했습니다.
-                  </p>
-                  <p>
-                    게임 내부에서는 빌보드 기법을 활용해 격렬한 카메라 움직임에도
-                    에셋이 항상 정면을 향하도록 처리하고, 디펜스 장르에서 흔하지
-                    않은 1인칭 시점의 분위기를 강화했습니다.
-                  </p>
-                </div>
+                <ul class="project-detail-list">
+                  <li>
+                    WebGL 빌드를 웹 서비스 안에 포함해 별도 설치 없이 접근
+                    가능한 플레이 환경을 제공했습니다.
+                  </li>
+                  <li>
+                    API 연결, 정보 공개 화면, 통신 암호화 반영, 밸런스 패치까지
+                    이어지는 업데이트 흐름을 배포 관점에서 관리했습니다.
+                  </li>
+                  <li>
+                    게임 내부에서는 빌보드 기법을 활용해 카메라 움직임이 큰
+                    상황에서도 에셋이 정면성을 유지하도록 처리하고 1인칭 시점의
+                    몰입감을 강화했습니다.
+                  </li>
+                </ul>
               </section>
 
               <section class="project-detail-block">
-                <h2>Result</h2>
+                <h2>Result & Retrospective</h2>
                 <div class="project-detail-copy">
                   <p>
                     2026년 5월 13일 데모 버전, 5월 18일 정식 버전, 5월 20일
-                    2.0.0 업데이트까지 진행했습니다. API 연결, 정보 공개, 통신
-                    암호화, 밸런스 패치까지 이어지는 운영 흐름을 경험했습니다.
+                    2.0.0 업데이트까지 이어지는 릴리즈를 완료했습니다. 단순
+                    구현에서 끝나지 않고 API 연결, 정보 공개, 통신 암호화,
+                    밸런스 패치처럼 서비스 운영 중 발생하는 변경을 실제 배포
+                    흐름 안에서 처리했습니다.
+                  </p>
+                  <p>
+                    이 프로젝트를 통해 게임 프로젝트에서도 프론트엔드 화면, 빌드
+                    산출물, 서버 설정, 배포 자동화가 하나의 사용자 경험으로
+                    연결된다는 점을 확인했습니다. 특히 WebGL 배포는 빌드
+                    결과물을 올리는 작업이 아니라 리소스 제공 방식과 서비스
+                    라우팅까지 함께 설계해야 안정적이라는 점을 배웠습니다.
                   </p>
                 </div>
               </section>
@@ -167,11 +212,11 @@
                 <ul class="project-detail-facts">
                   <li>
                     <strong>기간</strong>
-                    <span>2026.05</span>
+                    <span>2026.04 ~ 2026.05</span>
                   </li>
                   <li>
                     <strong>역할</strong>
-                    <span>Frontend, Infra</span>
+                    <span>Frontend, Infra, WebGL 배포</span>
                   </li>
                   <li>
                     <strong>팀</strong>
@@ -179,7 +224,7 @@
                   </li>
                   <li>
                     <strong>핵심 기여</strong>
-                    <span>WebGL 웹 게임 배포 환경과 CI/CD 흐름 구성</span>
+                    <span>게임 진입 화면, API 연동, 배포 환경, CI/CD 운영</span>
                   </li>
                 </ul>
               </section>
@@ -254,6 +299,24 @@
               </section>
 
               <section class="project-detail-panel">
+                <h2>Deliverables</h2>
+                <ul class="project-detail-facts">
+                  <li>
+                    <strong>Frontend</strong>
+                    <span>React/TypeScript 기반 게임 서비스 화면</span>
+                  </li>
+                  <li>
+                    <strong>Deployment</strong>
+                    <span>Docker, Nginx, AWS 기반 WebGL 배포 환경</span>
+                  </li>
+                  <li>
+                    <strong>Operation</strong>
+                    <span>GitLab CI/CD 기반 데모, 정식, 업데이트 릴리즈</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
                 <h2>Release</h2>
                 <ul class="project-detail-facts">
                   <li>
@@ -278,9 +341,17 @@
                     rel="noreferrer"
                     target="_blank"
                     class="cta-btn cta-btn--hero"
+                    href="https://youtu.be/AO8zktkhoOwg"
+                  >
+                    유튜브 영상
+                  </a>
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    class="cta-btn cta-btn--hero"
                     href="https://eggstudio.ai.kr/games"
                   >
-                    서비스 보기
+                    게임 플레이하기
                   </a>
                 </div>
               </section>
