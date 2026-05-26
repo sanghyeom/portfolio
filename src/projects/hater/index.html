@@ -13,7 +13,7 @@
     <title>Hater | 윤상현 Portfolio</title>
     <meta
       name="description"
-      content="Hater WebGL 로그라이크 디펜스 게임의 프론트엔드, 배포 인프라, 운영 자동화 경험을 정리한 프로젝트 상세 페이지입니다."
+      content="Hater Unity WebGL 게임을 웹 서비스로 제공하기 위한 React 웹 포털, 인증/세션 흐름, CI/CD, Docker/Nginx/AWS 배포 경험을 정리한 프로젝트 상세 페이지입니다."
     />
     <link
       rel="stylesheet"
@@ -35,15 +35,16 @@
               <span class="project-detail-eyebrow">Project Detail</span>
               <h1>Hater</h1>
               <p class="project-detail-summary">
-                Unity WebGL 게임을 웹 서비스로 제공하기 위해 프론트엔드 화면,
-                API 연동, Docker/Nginx/AWS 배포, GitLab CI/CD 흐름까지 담당한
-                로그라이크 디펜스 게임 프로젝트입니다.
+                Unity WebGL 게임을 웹 서비스로 제공하기 위해 React 웹 포털,
+                인증/세션 흐름, GitLab CI/CD, Docker/Nginx/AWS 배포 환경을
+                구축한 웹 게임 플랫폼 프로젝트입니다.
               </p>
 
               <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
-                <li>2026.04~2026.05</li>
-                <li>Frontend · Infra</li>
-                <li>React · TypeScript · WebGL · AWS</li>
+                <li>2026.04 ~ 2026.05</li>
+                <li>Frontend · Infra · CI/CD</li>
+                <li>React · TypeScript · Unity WebGL</li>
+                <li>Docker · Nginx · AWS · GitLab CI/CD</li>
               </ul>
             </div>
 
@@ -66,18 +67,18 @@
                 <h2>Overview</h2>
                 <div class="project-detail-copy">
                   <p>
-                    Hater는 스테이지마다 병력 배치, 전투, 탐사 이벤트, 사령관
-                    선택을 반복하며 빌드를 완성해가는 WebGL 기반 로그라이크
-                    디펜스 게임입니다. 플레이어가 현재 스테이지에서 사용한
-                    자원이 다음 스테이지 운영에 영향을 주도록 설계해, 단순한
-                    웨이브 클리어보다 장기적인 자원 판단이 중요하게 작동합니다.
+                    Hater는 Unity WebGL 기반의 중세 디펜스 게임을 웹
+                    브라우저에서 별도 설치 없이 플레이할 수 있도록 만든 웹 게임
+                    플랫폼입니다. 사용자는 웹 포털에서 게임 정보를 확인하고,
+                    로그인 후 게임에 진입하며, 랭킹과 마이페이지, 피드백, 뉴스
+                    영역을 통해 서비스 형태로 게임을 이용할 수 있습니다.
                   </p>
                   <p>
-                    저는 게임 클라이언트 자체보다 웹 서비스로 제공되는 흐름에
-                    집중했습니다. React/TypeScript 기반 화면, 게임 진입 동선,
-                    서버 API 연동, WebGL 빌드 배포 환경을 연결해 사용자가 별도
-                    설치 없이 게임에 접근하고 운영자가 버전을 배포할 수 있는
-                    구조를 만들었습니다.
+                    저는 React 웹 포털 전체 구현과 배포 인프라, CI/CD 파이프라인
+                    구성을 담당했습니다. 단순히 Unity WebGL 빌드를 실행하는
+                    페이지를 만드는 것이 아니라, 사용자가 게임을 탐색하고 인증
+                    상태를 유지하며 안정적으로 플레이에 진입할 수 있는 웹 서비스
+                    흐름을 구축하는 데 집중했습니다.
                   </p>
                 </div>
               </section>
@@ -86,18 +87,26 @@
                 <h2>My Role & Scope</h2>
                 <ul class="project-detail-list">
                   <li>
-                    프론트엔드와 인프라를 담당하며 React, TypeScript, Tailwind
-                    CSS 기반 서비스 화면과 게임 플레이 진입 흐름을 구현했습니다.
+                    React와 TypeScript 기반으로 홈, 게임 목록, 게임 상세, 랭킹,
+                    마이페이지, 피드백, 뉴스 등 웹 포털 전반을 구현했습니다.
                   </li>
                   <li>
-                    Unity WebGL 빌드를 웹에서 안정적으로 접근할 수 있도록 정적
-                    리소스 제공, 라우팅, Nginx 설정, Docker 배포 구성을
-                    정리했습니다.
+                    이메일 인증, 비밀번호 찾기, 로그아웃 확인 모달, 게임 플레이
+                    진입 전 세션 검증 등 사용자 인증 흐름을 구성했습니다.
                   </li>
                   <li>
-                    Spring Boot API, PostgreSQL, Redis와 연동되는 서비스 흐름을
-                    확인하고 GitLab Runner 기반 CI/CD로 데모, 정식, 2.0.0
-                    업데이트 배포 과정을 운영했습니다.
+                    웹게임 이용 중 세션이 끊기지 않도록 토큰 리프레시 로직과
+                    Heartbeat/Ping 기반 온라인 상태 확인 흐름을 적용했습니다.
+                  </li>
+                  <li>
+                    GitLab CI/CD에서 변경된 영역만 선택적으로 배포하는 부분 배포
+                    로직을 설계하고, Kaniko 기반 Docker 이미지 빌드와 Docker
+                    Compose 배포 환경을 구성했습니다.
+                  </li>
+                  <li>
+                    AWS S3 기반 Unity WebGL 정적 파일 서빙과 자동 업로드
+                    파이프라인, CloudFront 캐시 전략, Nginx 도메인 리다이렉트,
+                    Prometheus 기반 Spring 메트릭 수집을 함께 다뤘습니다.
                   </li>
                 </ul>
               </section>
@@ -106,19 +115,19 @@
                 <h2>Architecture Focus</h2>
                 <ul class="project-detail-list">
                   <li>
-                    웹 프론트엔드는 게임 소개, 플레이 진입, 정보 공개 화면을
-                    담당하고, WebGL 빌드는 Nginx를 통해 정적 리소스로 제공되도록
-                    구성했습니다.
+                    React 웹 포털은 게임 진입 전 필요한 서비스 화면과 인증
+                    상태를 담당하고, Unity WebGL 빌드는 S3에 업로드해 정적
+                    리소스로 제공할 수 있도록 구성했습니다.
                   </li>
                   <li>
-                    백엔드는 Spring Boot와 Java 21 기반 API로 구성하고,
-                    PostgreSQL은 영속 데이터, Redis는 빠른 조회와 운영성 보조
-                    영역에 사용했습니다.
+                    Spring Boot API 서버는 인증, 사용자 정보, 랭킹, 피드백 등
+                    서비스 데이터를 처리하며, PostgreSQL과 Redis를 함께
+                    사용했습니다.
                   </li>
                   <li>
-                    Docker 컨테이너, Nginx 리버스 프록시, AWS 서버, GitLab
-                    CI/CD를 연결해 로컬 빌드 결과가 실제 서비스 배포로 이어지는
-                    흐름을 반복 가능하게 만들었습니다.
+                    Docker Compose 기반 실행 환경과 GitLab CI/CD를 연결해
+                    프론트엔드, 백엔드, WebGL 리소스를 반복적으로 빌드/배포할 수
+                    있는 흐름을 만들었습니다.
                   </li>
                 </ul>
               </section>
@@ -127,19 +136,34 @@
                 <h2>Problem & Solution</h2>
                 <div class="project-detail-copy">
                   <p>
-                    첫 번째 문제는 Unity WebGL 빌드를 일반 웹 페이지처럼 제공할
-                    때 발생하는 리소스 경로, 압축 파일 제공, 라우팅
-                    충돌이었습니다. 게임 빌드와 React 서비스가 같은 도메인에서
-                    동작해야 했기 때문에 Nginx의 정적 파일 제공 범위와
-                    프론트엔드 라우팅 기준을 분리해 게임 진입 실패 가능성을
-                    줄였습니다.
+                    첫 번째 문제는 Unity WebGL 게임을 일반 웹 서비스 안에
+                    자연스럽게 포함하는 것이었습니다. WebGL 빌드는 일반 React
+                    페이지와 달리 .wasm, .data, .framework.js 같은 정적 리소스를
+                    포함하고 있어 실행 경로와 캐시 전략이 중요했습니다. 이를
+                    해결하기 위해 WebGL 실행 경로를 빌드 환경변수로 분리하고, S3
+                    자동 업로드 파이프라인과 CloudFront 캐시 전략을 함께
+                    검토했습니다.
                   </p>
                   <p>
-                    두 번째 문제는 짧은 기간 안에 데모, 정식 버전, 2.0.0
-                    업데이트를 이어가야 하는 운영 속도였습니다. 수동 배포에
-                    의존하면 수정 범위와 서버 반영 상태가 쉽게 어긋날 수 있어
-                    Docker 이미지, Nginx 설정, GitLab Runner 배포 단계를
-                    정리하고 반복 가능한 릴리즈 흐름으로 관리했습니다.
+                    두 번째 문제는 웹게임 플레이 중 인증 상태를 안정적으로
+                    유지하는 것이었습니다. 사용자가 게임에 진입한 뒤 토큰이
+                    만료되거나 세션이 유효하지 않으면 플레이 경험이 끊길 수
+                    있었습니다. 이를 줄이기 위해 게임 진입 전 세션 검증을
+                    적용하고, 토큰 리프레시와 Heartbeat/Ping 기반 온라인 상태
+                    확인 흐름을 구성했습니다.
+                  </p>
+                  <p>
+                    세 번째 문제는 짧은 프로젝트 기간 안에서 여러 구성 요소를
+                    안정적으로 배포하는 것이었습니다. 프론트엔드, 백엔드, WebGL
+                    리소스가 함께 관리되어야 했기 때문에 GitLab CI/CD에서 변경된
+                    컴포넌트만 선택적으로 재배포하는 부분 배포 로직을 설계하고,
+                    Kaniko 이미지 빌드와 Docker Compose 배포 환경을 구성했습니다.
+                  </p>
+                  <p>
+                    네 번째 문제는 서비스 운영 관점의 가시성을 확보하는
+                    것이었습니다. Prometheus와 Spring 메트릭 수집을 연결해 단순
+                    실행 여부를 넘어 백엔드 상태를 관찰할 수 있는 기반을
+                    마련했습니다.
                   </p>
                 </div>
               </section>
@@ -148,17 +172,36 @@
                 <h2>Technical Highlights</h2>
                 <ul class="project-detail-list">
                   <li>
-                    WebGL 빌드를 웹 서비스 안에 포함해 별도 설치 없이 접근
-                    가능한 플레이 환경을 제공했습니다.
+                    React/TypeScript 기반으로 홈, 게임 목록, 게임 상세, 랭킹,
+                    마이페이지, 피드백, 뉴스 등 웹 포털 전체 화면을 구현했습니다.
                   </li>
                   <li>
-                    API 연결, 정보 공개 화면, 통신 암호화 반영, 밸런스 패치까지
-                    이어지는 업데이트 흐름을 배포 관점에서 관리했습니다.
+                    이메일 인증, 비밀번호 찾기, 로그아웃 확인 모달, 게임 진입 전
+                    세션 검증 등 사용자 인증 UX를 구성했습니다.
                   </li>
                   <li>
-                    게임 내부에서는 빌보드 기법을 활용해 카메라 움직임이 큰
-                    상황에서도 에셋이 정면성을 유지하도록 처리하고 1인칭 시점의
-                    몰입감을 강화했습니다.
+                    Heartbeat/Ping 로직과 토큰 리프레시 흐름을 적용해 웹게임
+                    이용 중 세션 유지 경험을 개선했습니다.
+                  </li>
+                  <li>
+                    GitLab CI/CD에서 변경 파일 기준 부분 배포 로직을 설계해
+                    프론트엔드, 백엔드, WebGL 리소스를 선택적으로 배포할 수
+                    있도록 구성했습니다.
+                  </li>
+                  <li>
+                    Kaniko를 활용해 Docker daemon에 의존하지 않는 이미지 빌드
+                    흐름을 구성하고, docker-compose.deploy.yml 기반 초기 배포
+                    환경과 환경변수 주입 방식을 정리했습니다.
+                  </li>
+                  <li>
+                    AWS S3에 Unity WebGL 빌드 결과물을 업로드하는 자동 배포
+                    파이프라인을 구성하고, CloudFront 연동과 WebGL 버전별 캐시
+                    전략을 검토했습니다.
+                  </li>
+                  <li>
+                    Nginx 도메인 리다이렉트, WebGL 실행 경로 분리, 모바일 반응형
+                    CSS, favicon 설정, Prometheus 기반 Spring 메트릭 수집을
+                    수행했습니다.
                   </li>
                 </ul>
               </section>
@@ -169,38 +212,136 @@
                   <p>
                     2026년 5월 13일 데모 버전, 5월 18일 정식 버전, 5월 20일
                     2.0.0 업데이트까지 이어지는 릴리즈를 완료했습니다. 단순
-                    구현에서 끝나지 않고 API 연결, 정보 공개, 통신 암호화,
-                    밸런스 패치처럼 서비스 운영 중 발생하는 변경을 실제 배포
-                    흐름 안에서 처리했습니다.
+                    구현에서 끝나지 않고 인증 흐름, WebGL 리소스 제공, API 연동,
+                    배포 자동화, 모니터링 기반까지 실제 서비스 운영 흐름 안에서
+                    연결했습니다.
                   </p>
                   <p>
-                    이 프로젝트를 통해 게임 프로젝트에서도 프론트엔드 화면, 빌드
-                    산출물, 서버 설정, 배포 자동화가 하나의 사용자 경험으로
-                    연결된다는 점을 확인했습니다. 특히 WebGL 배포는 빌드
-                    결과물을 올리는 작업이 아니라 리소스 제공 방식과 서비스
-                    라우팅까지 함께 설계해야 안정적이라는 점을 배웠습니다.
+                    이 프로젝트를 통해 Unity WebGL 게임을 실행 가능한 빌드 파일로
+                    제공하는 것과 실제 웹 서비스처럼 운영하는 것은 다른 문제라는
+                    점을 경험했습니다. 게임을 서비스로 제공하려면 React 웹 포털,
+                    인증/세션 흐름, WebGL 정적 리소스 제공, API 서버, 도메인,
+                    캐시, 배포 자동화, 모니터링이 하나의 흐름으로 연결되어야
+                    한다는 점을 배웠습니다.
                   </p>
                 </div>
               </section>
 
               <section class="project-detail-block project-detail-gallery">
-                <h2>주요 화면</h2>
+                <h2>Frontend Screens</h2>
+                <p class="project-detail-note">
+                  React 웹 포털에서 구현한 주요 사용자 흐름입니다. 게임 소개와
+                  진입, 인증, 마이페이지, 피드백까지 웹게임을 서비스 형태로
+                  이용하는 데 필요한 화면을 구성했습니다.
+                </p>
                 <div class="project-detail-gallery__grid">
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/hater/hater_1.webp"
-                      alt="Hater 데모 진입 화면"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="0"
+                      data-gallery-title="Home"
+                      data-gallery-description="게임 소개, 주요 프로젝트, 랭킹과 공지 진입을 제공하는 웹 포털 첫 화면입니다."
+                      aria-label="Home 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-home-fullpage.png"
+                        alt="Egg Studio 홈 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Home</figcaption>
                   </figure>
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/hater/hater_2.webp"
-                      alt="Hater 서비스 대표 화면"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="1"
+                      data-gallery-title="Games"
+                      data-gallery-description="공개 게임 목록과 상세/플레이 진입 동선을 구성한 게임 탐색 화면입니다."
+                      aria-label="Games 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-games-fullpage.png"
+                        alt="Egg Studio 게임 목록 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Games</figcaption>
+                  </figure>
+                  <figure class="project-detail-gallery__item">
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="2"
+                      data-gallery-title="Game Entry"
+                      data-gallery-description="Unity WebGL 플레이 화면으로 진입하기 전 게임 실행 흐름을 연결한 화면입니다."
+                      aria-label="Game Entry 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-gameplay-fullpage.png"
+                        alt="Hater 게임 플레이 진입 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Game Entry</figcaption>
+                  </figure>
+                  <figure class="project-detail-gallery__item">
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="3"
+                      data-gallery-title="Auth Flow"
+                      data-gallery-description="로그인 이후 인증 상태를 확인하고 게임 이용 권한을 연결하는 인증 흐름입니다."
+                      aria-label="Auth Flow 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-login-auth-fullpage.png"
+                        alt="Egg Studio 로그인 인증 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Auth Flow</figcaption>
+                  </figure>
+                  <figure class="project-detail-gallery__item">
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="4"
+                      data-gallery-title="My Page"
+                      data-gallery-description="플레이 기록, 계정 정보, 서비스 이용 상태를 확인할 수 있는 사용자 페이지입니다."
+                      aria-label="My Page 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-mypage-fullpage.png"
+                        alt="Egg Studio 마이페이지 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>My Page</figcaption>
+                  </figure>
+                  <figure class="project-detail-gallery__item">
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-index="5"
+                      data-gallery-title="Feedback"
+                      data-gallery-description="사용자가 피드백을 작성하고 제출 내역을 확인할 수 있도록 구성한 지원 화면입니다."
+                      aria-label="Feedback 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/hater/eggstudio-support-fullpage.png"
+                        alt="Egg Studio 피드백 지원 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Feedback</figcaption>
                   </figure>
                 </div>
               </section>
@@ -216,7 +357,7 @@
                   </li>
                   <li>
                     <strong>역할</strong>
-                    <span>Frontend, Infra, WebGL 배포</span>
+                    <span>Frontend, Infra, CI/CD</span>
                   </li>
                   <li>
                     <strong>팀</strong>
@@ -224,7 +365,7 @@
                   </li>
                   <li>
                     <strong>핵심 기여</strong>
-                    <span>게임 진입 화면, API 연동, 배포 환경, CI/CD 운영</span>
+                    <span>웹 포털 전체 구현, 세션 검증, 부분 배포, S3 WebGL 자동 업로드</span>
                   </li>
                 </ul>
               </section>
@@ -246,6 +387,15 @@
                   </li>
                   <li class="project-stack__item project-stack__item--text">
                     <span>Tailwind CSS</span>
+                  </li>
+                  <li class="project-stack__item">
+                    <img
+                      class="project-stack__icon"
+                      src="../../assets/tech-icons/unity.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>Unity WebGL</span>
                   </li>
                   <li class="project-stack__item">
                     <img
@@ -290,10 +440,19 @@
                     <span>Nginx</span>
                   </li>
                   <li class="project-stack__item project-stack__item--text">
-                    <span>AWS</span>
+                    <span>AWS S3</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>CloudFront</span>
                   </li>
                   <li class="project-stack__item project-stack__item--text">
                     <span>GitLab CI/CD</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>Kaniko</span>
+                  </li>
+                  <li class="project-stack__item project-stack__item--text">
+                    <span>Prometheus</span>
                   </li>
                 </ul>
               </section>
@@ -303,15 +462,31 @@
                 <ul class="project-detail-facts">
                   <li>
                     <strong>Frontend</strong>
-                    <span>React/TypeScript 기반 게임 서비스 화면</span>
+                    <span>React/TypeScript 기반 웹 포털 전체 화면</span>
+                  </li>
+                  <li>
+                    <strong>Auth UX</strong>
+                    <span>이메일 인증, 비밀번호 찾기, 로그아웃 모달, 세션 검증</span>
+                  </li>
+                  <li>
+                    <strong>Game Entry</strong>
+                    <span>Unity WebGL 게임 플레이 진입 흐름</span>
                   </li>
                   <li>
                     <strong>Deployment</strong>
-                    <span>Docker, Nginx, AWS 기반 WebGL 배포 환경</span>
+                    <span>Docker Compose, Nginx, AWS 기반 배포 환경</span>
+                  </li>
+                  <li>
+                    <strong>CI/CD</strong>
+                    <span>부분 배포, Kaniko 이미지 빌드, 환경변수 처리</span>
+                  </li>
+                  <li>
+                    <strong>WebGL Delivery</strong>
+                    <span>AWS S3 자동 업로드, CloudFront 캐시 전략 검토</span>
                   </li>
                   <li>
                     <strong>Operation</strong>
-                    <span>GitLab CI/CD 기반 데모, 정식, 업데이트 릴리즈</span>
+                    <span>Prometheus 기반 Spring 메트릭 수집</span>
                   </li>
                 </ul>
               </section>
@@ -359,6 +534,155 @@
           </div>
         </div>
       </section>
+
+      <div
+        class="project-image-modal"
+        id="hater-screen-modal"
+        aria-hidden="true"
+      >
+        <div
+          class="project-image-modal__backdrop"
+          data-gallery-close
+          aria-hidden="true"
+        ></div>
+        <div
+          class="project-image-modal__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="hater-screen-modal-title"
+          aria-describedby="hater-screen-modal-desc"
+        >
+          <header class="project-image-modal__header">
+            <div>
+              <span class="project-image-modal__eyebrow">Frontend Screen</span>
+              <h2 id="hater-screen-modal-title">Home</h2>
+              <p id="hater-screen-modal-desc"></p>
+            </div>
+            <button
+              type="button"
+              class="project-image-modal__close"
+              data-gallery-close
+              aria-label="모달 닫기"
+            >
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </header>
+
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--prev"
+            data-gallery-prev
+            aria-label="이전 이미지"
+          >
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <div class="project-image-modal__viewport" tabindex="0">
+            <img
+              src="../../assets/hater/eggstudio-home-fullpage.png"
+              alt="Egg Studio 홈 화면"
+              class="project-image-modal__image"
+            />
+          </div>
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--next"
+            data-gallery-next
+            aria-label="다음 이미지"
+          >
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
     </main>
+    <script>
+      (() => {
+        const triggers = Array.from(
+          document.querySelectorAll(".project-detail-gallery__trigger")
+        );
+        const modal = document.getElementById("hater-screen-modal");
+
+        if (!triggers.length || !modal) return;
+
+        const modalTitle = modal.querySelector("#hater-screen-modal-title");
+        const modalDesc = modal.querySelector("#hater-screen-modal-desc");
+        const modalImage = modal.querySelector(".project-image-modal__image");
+        const modalViewport = modal.querySelector(".project-image-modal__viewport");
+        const closeButtons = modal.querySelectorAll("[data-gallery-close]");
+        const prevButton = modal.querySelector("[data-gallery-prev]");
+        const nextButton = modal.querySelector("[data-gallery-next]");
+
+        const screens = triggers.map((trigger) => {
+          const image = trigger.querySelector("img");
+          return {
+            title: trigger.dataset.galleryTitle,
+            description: trigger.dataset.galleryDescription,
+            src: image.getAttribute("src"),
+            alt: image.getAttribute("alt"),
+          };
+        });
+
+        let currentIndex = 0;
+        let lastFocusedElement = null;
+
+        const renderScreen = () => {
+          const screen = screens[currentIndex];
+          modalTitle.textContent = screen.title;
+          modalDesc.textContent = screen.description;
+          modalImage.src = screen.src;
+          modalImage.alt = screen.alt;
+          modalViewport.scrollTo({ top: 0, left: 0 });
+        };
+
+        const openModal = (index) => {
+          currentIndex = index;
+          lastFocusedElement = document.activeElement;
+          renderScreen();
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("project-modal-open");
+          modalViewport.focus();
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("project-modal-open");
+          if (lastFocusedElement) {
+            lastFocusedElement.focus();
+          }
+        };
+
+        const move = (direction) => {
+          currentIndex =
+            (currentIndex + direction + screens.length) % screens.length;
+          renderScreen();
+        };
+
+        triggers.forEach((trigger, index) => {
+          trigger.addEventListener("click", () => openModal(index));
+        });
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", closeModal);
+        });
+
+        prevButton.addEventListener("click", () => move(-1));
+        nextButton.addEventListener("click", () => move(1));
+
+        document.addEventListener("keydown", (event) => {
+          if (!modal.classList.contains("is-open")) return;
+
+          if (event.key === "Escape") {
+            closeModal();
+          }
+          if (event.key === "ArrowLeft") {
+            move(-1);
+          }
+          if (event.key === "ArrowRight") {
+            move(1);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
