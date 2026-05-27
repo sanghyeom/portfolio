@@ -369,6 +369,59 @@
                 </ul>
               </section>
 
+              <section class="project-detail-block project-detail-ingame">
+                <h2>In-Game Preview</h2>
+                <p class="project-detail-note">
+                  Unity WebGL 빌드에서 확인한 실제 플레이 흐름입니다. 병력 배치
+                  화면과 전투 진행 장면을 통해 웹 포털 이후 연결되는 게임 경험을
+                  함께 보여줍니다.
+                </p>
+                <div class="project-detail-ingame__grid">
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="In-Game Preview"
+                      data-gallery-title="Placement"
+                      data-gallery-description="전투 전 병력 배치와 전장 준비 흐름을 보여주는 Unity WebGL 실제 플레이 화면입니다."
+                      aria-label="Placement 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/hater/hater-placement-720p.gif"
+                        alt="Hater 병력 배치와 전투 준비 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Placement</strong>
+                      <span>전투 전 병력 배치와 전장 준비 흐름</span>
+                    </figcaption>
+                  </figure>
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="In-Game Preview"
+                      data-gallery-title="Battle"
+                      data-gallery-description="웨이브 진행 중 병력과 적 유닛이 충돌하는 전투 장면을 보여주는 Unity WebGL 실제 플레이 화면입니다."
+                      aria-label="Battle 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/hater/hater-battle-2x-720p.gif"
+                        alt="Hater 전투 진행 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Battle</strong>
+                      <span>웨이브 진행 중 병력과 적 유닛이 충돌하는 전투 장면</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </section>
+
               <section class="project-detail-block project-detail-gallery">
                 <h2>Frontend Screens</h2>
                 <p class="project-detail-note">
@@ -742,15 +795,20 @@
         </div>
       </div>
     </main>
-    <script>
+      <script>
       (() => {
         const triggers = Array.from(
-          document.querySelectorAll(".project-detail-gallery__trigger")
+          document.querySelectorAll(
+            ".project-detail-ingame__trigger, .project-detail-gallery__trigger"
+          )
         );
         const modal = document.getElementById("hater-screen-modal");
 
         if (!triggers.length || !modal) return;
 
+        const modalEyebrow = modal.querySelector(
+          ".project-image-modal__eyebrow"
+        );
         const modalTitle = modal.querySelector("#hater-screen-modal-title");
         const modalDesc = modal.querySelector("#hater-screen-modal-desc");
         const modalImage = modal.querySelector(".project-image-modal__image");
@@ -764,6 +822,7 @@
         const screens = triggers.map((trigger) => {
           const image = trigger.querySelector("img");
           return {
+            eyebrow: trigger.dataset.galleryEyebrow || "Frontend Screen",
             title: trigger.dataset.galleryTitle,
             description: trigger.dataset.galleryDescription,
             src: image.getAttribute("src"),
@@ -776,6 +835,7 @@
 
         const renderScreen = () => {
           const screen = screens[currentIndex];
+          modalEyebrow.textContent = screen.eyebrow;
           modalTitle.textContent = screen.title;
           modalDesc.textContent = screen.description;
           modalImage.src = screen.src;

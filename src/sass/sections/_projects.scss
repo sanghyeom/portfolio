@@ -429,6 +429,92 @@
     text-align: left;
   }
 
+  .project-detail-ingame {
+    text-align: left;
+  }
+
+  .project-detail-ingame .project-detail-note {
+    margin-bottom: 2rem;
+  }
+
+  .project-detail-ingame__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-detail-ingame__item {
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba($dark-blue-text, 0.08);
+    border-radius: 1.2rem;
+    background: rgba($white-color, 0.96);
+    box-shadow: 0 0.8rem 2.4rem rgba($dark-blue-text, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .project-detail-ingame__item:hover,
+  .project-detail-ingame__item:focus-within {
+    border-color: rgba($secondary-color, 0.42);
+    box-shadow: 0 1.4rem 3.2rem rgba($dark-blue-text, 0.12);
+    transform: translateY(-0.4rem);
+  }
+
+  .project-detail-ingame__trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    overflow: hidden;
+  }
+
+  .project-detail-ingame__trigger:focus-visible {
+    outline: 3px solid rgba($secondary-color, 0.45);
+    outline-offset: -3px;
+  }
+
+  .project-detail-ingame__item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #050505;
+    transition: transform 0.28s ease, filter 0.28s ease;
+  }
+
+  .project-detail-ingame__trigger:hover img,
+  .project-detail-ingame__trigger:focus-visible img {
+    filter: saturate(1.05) contrast(1.04);
+    transform: scale(1.035);
+  }
+
+  .project-detail-ingame__item figcaption {
+    display: grid;
+    gap: 0.3rem;
+    padding: 1.2rem 1.4rem;
+    border-top: 1px solid rgba($dark-blue-text, 0.08);
+  }
+
+  .project-detail-ingame__item figcaption strong {
+    color: $dark-blue-text;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .project-detail-ingame__item figcaption span {
+    color: rgba($dark-blue-text, 0.72);
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
   .project-detail-gallery h2 {
     margin-bottom: 1.8rem;
     font-size: 2.4rem;
