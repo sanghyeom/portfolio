@@ -13,7 +13,7 @@
     <title>Mannequin | 윤상현 Portfolio</title>
     <meta
       name="description"
-      content="Mannequin [The Haunted Mall] 프로젝트 상세 페이지입니다."
+      content="Mannequin [The Haunted Mall] Photon Fusion 기반 3D 비대칭 PvP 호러 게임의 세션 흐름, 로딩 UX, Unity CI 검증 환경, 협업 자동화 경험을 정리한 프로젝트 상세 페이지입니다."
     />
     <link
       rel="stylesheet"
@@ -35,14 +35,17 @@
               <span class="project-detail-eyebrow">Project Detail</span>
               <h1>Mannequin [The Haunted Mall]</h1>
               <p class="project-detail-summary">
-                Photon Fusion 기반 3D 비대칭 PvP 호러 게임에서 세션 흐름,
-                로딩 경험, 협업 운영 기반을 함께 다룬 프로젝트입니다.
+                Photon Fusion 기반 3D 비대칭 PvP 호러 게임에서 세션
+                생성·참가·종료 흐름, 로딩/씬 전환 UX, Unity CI 검증 환경과
+                협업 자동화를 정리해 팀이 안정적으로 멀티플레이 기능을 검증할
+                수 있도록 만든 프로젝트입니다.
               </p>
 
               <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
                 <li>2026.02 ~ 2026.03</li>
-                <li>Infrastructure · UI</li>
+                <li>Infrastructure · UI · Multiplayer Flow</li>
                 <li>Unity · Photon Fusion · GitLab Runner</li>
+                <li>EC2 · Mattermost Webhook · Addressables 검토</li>
               </ul>
             </div>
 
@@ -65,87 +68,379 @@
                 <h2>Overview</h2>
                 <div class="project-detail-copy">
                   <p>
-                    Mannequin은 Dead by Daylight에서 착안한 구조에 증강 시스템을
-                    더한 3D 비대칭 PvP 호러 게임입니다. 짧은 플레이타임 안에서도
-                    긴장감과 몰입감을 전달하는 것을 목표로 했습니다.
+                    Mannequin은 쇼핑몰을 배경으로 마네킹과 퇴마사가 대립하는
+                    <b>Photon Fusion 기반 3D 비대칭 PvP 호러 게임</b>입니다.
+                    짧은 플레이타임 안에서도 역할별 긴장감과 추격·회피 경험을
+                    전달하는 것을 목표로 했습니다.
                   </p>
                   <p>
-                    저는 인프라를 주 담당하고 UI를 부 담당하며, 팀이 안정적으로
-                    개발·검증·플레이할 수 있는 기반과 실제 플레이 진입 흐름을
-                    함께 정리했습니다.
+                    저는 이 프로젝트에서 <b>인프라를 주 담당</b>하고
+                    <b>UI를 부 담당</b>하며, 팀이 멀티플레이 기능을 안정적으로
+                    개발·검증할 수 있는 기반과 실제 플레이 진입 흐름을 함께
+                    정리했습니다.
+                  </p>
+                  <p>
+                    특히 멀티플레이 게임에서는 사용자가 보고 있는 화면 상태와
+                    실제 네트워크 세션 상태가 어긋나면 플레이 경험 전체가
+                    흔들릴 수 있다고 판단했습니다. 그래서 화면 단위 수정에
+                    그치지 않고 <b>세션 생명주기, 씬 전환 순서, 로딩 피드백</b
+                    >을 함께 바라보며 흐름을 다듬었습니다.
+                  </p>
+                  <p>
+                    또한 GitLab Runner, Unity 라이선스, EC2 실행 환경,
+                    Mattermost 웹훅을 점검해 팀의 반복 검증과 협업 상태 공유가
+                    일회성 수작업에 의존하지 않도록 정리했습니다.
                   </p>
                 </div>
               </section>
 
               <section class="project-detail-block">
-                <h2>My Role</h2>
+                <h2>My Role & Scope</h2>
                 <ul class="project-detail-list">
                   <li>
-                    GitLab Runner, Unity 라이선스, CI 검증 환경을 EC2에서 점검해
-                    반복 가능한 빌드/검증 흐름을 만들었습니다.
+                    <strong>Photon Fusion 세션 흐름 정리</strong>
+                    <p>
+                      세션 생성·참가·종료 과정에서 UI 상태와 실제 네트워크 상태가
+                      어긋나지 않도록 로비, 참가, 이탈 흐름을 함께 점검했습니다.
+                    </p>
                   </li>
+
                   <li>
-                    Mattermost 웹훅으로 브랜치별 커밋 현황을 공유하는 협업
-                    자동화 흐름을 구성했습니다.
+                    <strong>LoadingScene 및 씬 전환 UX 개선</strong>
+                    <p>
+                      로비에서 인게임으로 넘어가는 과정에서 사용자가 현재 상태를
+                      이해할 수 있도록 역할별 로딩 흐름과 상태 피드백을
+                      정리했습니다.
+                    </p>
                   </li>
+
                   <li>
-                    Photon Fusion 기반 세션 생성·참가·종료 흐름과 역할별
-                    LoadingScene을 함께 다루며 플레이 진입 경험을 다듬었습니다.
+                    <strong>Unity CI 검증 환경 구성</strong>
+                    <p>
+                      EC2 기반 GitLab Runner, Unity 라이선스, 실행 환경을 점검해
+                      반복 가능한 빌드/검증 흐름을 만들 수 있도록 운영 기준을
+                      정리했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>협업 자동화 및 상태 공유</strong>
+                    <p>
+                      Mattermost 웹훅으로 브랜치별 커밋 현황을 공유해 팀원이
+                      변경 흐름을 빠르게 확인할 수 있는 협업 자동화 기반을
+                      구성했습니다.
+                    </p>
                   </li>
                 </ul>
               </section>
 
               <section class="project-detail-block">
-                <h2>Problem & Solution</h2>
+                <h2>Architecture Focus</h2>
                 <div class="project-detail-copy">
-                  <p>
-                    가장 중요하게 본 문제는 사용자가 화면에서 인지하는 상태와
-                    실제 네트워크 세션 상태가 어긋나는 지점이었습니다. 방을
-                    나갔다고 느끼지만 세션이 남아 있거나, 참가 중인지 로딩 중인지
-                    알기 어려운 흐름은 멀티플레이 경험 전체를 흔들 수 있습니다.
-                  </p>
-                  <p>
-                    그래서 화면만 수정하기보다 세션 생명주기, 씬 전환 순서, 상태
-                    피드백을 함께 정리했습니다. 로딩 오버레이와 역할별 진입
-                    흐름을 연결해 사용자가 현재 상태를 직관적으로 이해할 수
-                    있도록 구성했습니다.
-                  </p>
+                  <article>
+                    <h3><b>1. Multiplayer Session Flow</b></h3>
+                    <p>
+                      <strong>Photon Fusion 세션 흐름</strong>은 단순히 방을
+                      만들고 참가하는 기능이 아니라, 로비 UI와 실제 네트워크
+                      상태가 같은 방향으로 움직이도록 정리해야 하는 영역이었습니다.
+                      세션 생성, 참가, 종료, 이탈 시점의 흐름을 함께 점검해
+                      사용자가 현재 상태를 오해하지 않도록 구성했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>2. Scene Transition / Loading UX</b></h3>
+                    <p>
+                      <strong>LoadingScene과 씬 전환 흐름</strong>은 멀티플레이
+                      진입 과정의 상태 피드백 장치로 보았습니다. 로비에서 게임
+                      시작 후 인게임으로 넘어가는 동안 사용자가 참가 중인지,
+                      로딩 중인지, 역할별 진입을 기다리는지 알 수 있도록 흐름을
+                      정리했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>3. Unity CI / Collaboration Pipeline</b></h3>
+                    <p>
+                      <strong>GitLab Runner와 Mattermost 웹훅</strong>을 활용해
+                      팀의 검증과 공유 흐름을 정리했습니다. Unity 라이선스와 EC2
+                      Runner 환경을 점검하고, 브랜치별 커밋 현황이 자동으로
+                      공유되도록 구성해 협업 과정의 누락 가능성을 줄이고자
+                      했습니다.
+                    </p>
+                  </article>
                 </div>
               </section>
 
               <section class="project-detail-block">
-                <h2>Result</h2>
+                <h2>Challenges & Solution</h2>
                 <div class="project-detail-copy">
+                  <article>
+                    <h3><b>1. 세션 상태와 UI 상태의 불일치</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      멀티플레이 게임에서는 사용자가 방을 나갔다고 느끼더라도
+                      실제 세션이 남아 있거나, 참가 중인지 대기 중인지 화면에서
+                      명확히 드러나지 않으면 플레이 진입 경험이 흔들릴 수
+                      있었습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      세션 생성·참가·종료 흐름을 UI 현상으로만 보지 않고
+                      <strong>네트워크 세션 생명주기와 연결된 상태 흐름</strong
+                      >으로 정리했습니다. 로비와 참가 흐름에서 사용자가 인지하는
+                      상태와 실제 세션 상태가 함께 전환되도록 점검했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>2. 플레이 진입 과정의 상태 피드백 부족</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      로비에서 게임 시작 후 인게임으로 넘어가는 과정은 단순 화면
+                      전환처럼 보이지만, 실제로는 역할 배정, 씬 로딩, 네트워크
+                      참가 상태가 함께 맞물리는 구간이었습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      <strong>LoadingScene을 상태 피드백 장치</strong>로 보고,
+                      역할별 진입 흐름과 씬 전환 순서를 함께 정리했습니다. 이를
+                      통해 사용자가 현재 단계가 로딩인지, 참가 대기인지, 인게임
+                      전환인지 이해할 수 있도록 구성했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>3. Unity Runner와 라이선스 환경의 반복성</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      Unity 프로젝트는 Runner 환경, 라이선스 인증, 실행 경로에
+                      따라 검증 결과가 흔들릴 수 있어, 팀 단위 개발에서는
+                      반복 가능한 기준이 필요했습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      EC2에서 <strong>GitLab Runner와 Unity 라이선스 상태</strong
+                      >를 점검하고, 팀이 같은 기준으로 빌드와 검증을 수행할 수
+                      있도록 운영 흐름을 문서화했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>4. 협업 상태 공유의 누락 가능성</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      브랜치별 커밋 현황과 변경 흐름을 사람이 직접 공유하면
+                      누락되기 쉽고, 멀티플레이 기능처럼 여러 파트가 맞물리는
+                      작업에서는 팀 전체의 상태 인지가 중요했습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      <strong>Mattermost Webhook</strong>을 연결해 브랜치별 커밋
+                      현황이 자동으로 공유되도록 구성했습니다. 이를 통해 변경
+                      흐름을 팀 채널에서 바로 확인하고 검증 타이밍을 맞출 수
+                      있도록 했습니다.
+                    </p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Technical Highlights</h2>
+                <ul class="project-detail-list">
+                  <li>
+                    <strong>Photon Fusion 세션 생명주기 점검</strong>
+                    <p>
+                      세션 생성, 참가, 종료, 이탈 흐름을 UI 상태와 함께 보며
+                      멀티플레이 진입 과정의 불일치 가능성을 줄였습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>역할별 LoadingScene 흐름 정리</strong>
+                    <p>
+                      로딩 화면을 단순 대기 화면이 아니라 역할 배정과 씬 전환
+                      상태를 전달하는 피드백 흐름으로 정리했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>GitLab Runner / Unity 라이선스 운영 기준</strong>
+                    <p>
+                      EC2 Runner 환경과 Unity 라이선스 상태를 점검해 빌드와 검증
+                      과정을 반복 가능한 형태로 관리할 수 있도록 했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Mattermost 기반 협업 알림 자동화</strong>
+                    <p>
+                      브랜치별 커밋 현황을 팀 채널로 전달해 변경 사항 공유와
+                      검증 타이밍 조율이 수월하도록 구성했습니다.
+                    </p>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Result & Retrospective</h2>
+                <div class="project-detail-copy">
+                  <h3><b>Result</b></h3>
                   <p>
                     로비에서 게임 시작 후 인게임으로 넘어가는 흐름을 단순한 화면
-                    전환이 아니라 상태가 보이는 경험으로 다듬었습니다. GitLab
-                    Runner와 Unity 라이선스 운영 기준도 문서화해 팀의 검증 루틴을
-                    반복 가능한 형태로 정리했습니다.
+                    전환이 아니라 <strong>상태가 보이는 플레이 진입 경험</strong
+                    >으로 다듬었습니다. 또한 GitLab Runner와 Unity 라이선스
+                    운영 기준을 정리해 팀의 검증 루틴을 반복 가능한 형태로
+                    만들었습니다.
                   </p>
+
+                  <hr />
+
+                  <h3><b>Impact</b></h3>
                   <p>
-                    이 프로젝트를 통해 멀티플레이에서는 개별 기능 구현보다 세션
-                    생명주기 설계, 상태 피드백, 협업 운영 기준 정리를 함께 보는
-                    시야가 중요하다는 점을 배웠습니다.
+                    팀은 멀티플레이 기능을 검증할 때 세션 상태, 씬 전환, 로딩
+                    상태를 함께 확인할 수 있게 되었고, 브랜치별 변경 흐름도
+                    Mattermost를 통해 더 빠르게 공유할 수 있었습니다.
+                  </p>
+
+                  <p>
+                    사용자 관점에서는 참가, 로딩, 인게임 진입 사이의 흐름이 더
+                    명확해져, 네트워크 기반 게임에서 자주 발생하는 "지금 무엇을
+                    기다리는지 모르는 상태"를 줄이는 방향으로 경험을 개선했습니다.
+                  </p>
+
+                  <hr />
+
+                  <h3><b>Retrospective</b></h3>
+                  <p>
+                    이 프로젝트를 통해 멀티플레이 게임에서는 개별 기능 구현만큼
+                    <strong
+                      >세션 생명주기, 상태 피드백, 검증 환경, 협업 운영 기준</strong
+                    >을 함께 보는 시야가 중요하다는 점을 배웠습니다.
+                  </p>
+
+                  <p>
+                    이후에는 Runner 기반 검증을 더 자동화하고, 세션 실패/재참가
+                    케이스까지 사용자 피드백과 로그로 관찰할 수 있는 구조로
+                    확장해보고 싶습니다.
                   </p>
                 </div>
               </section>
 
-              <section class="project-detail-block">
-                <h2>Key Points</h2>
-                <ul class="project-detail-list">
-                  <li>
-                    세션 생성·참가·종료 흐름을 UI 현상으로만 보지 않고 실제
-                    네트워크 생명주기와 연결된 구조 문제로 해석했습니다.
-                  </li>
-                  <li>
-                    Join Room과 LoadingScene은 단순 화면이 아니라 사용자가 현재
-                    상태를 이해할 수 있는 피드백 장치로 설계했습니다.
-                  </li>
-                  <li>
-                    CI와 Unity 라이선스 운영은 일회성 셋업보다 반복 가능한 검증
-                    기준을 만드는 데 초점을 맞췄습니다.
-                  </li>
-                </ul>
+              <section class="project-detail-block project-detail-ingame">
+                <h2>Gameplay Systems</h2>
+                <p class="project-detail-note">
+                  실제 플레이에서 확인한 마네킹 역할의 주요 스킬과 전환
+                  흐름입니다. 스킬 사용, 위장, 교란 장면을 통해 세션 진입 이후
+                  이어지는 플레이 경험을 보여줍니다.
+                </p>
+                <div class="project-detail-ingame__grid">
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="Gameplay System"
+                      data-gallery-title="Install Targeting"
+                      data-gallery-description="마네킹 설치 스킬 사용 전, 배치 위치와 전장 상황을 확인하는 플레이 흐름입니다."
+                      aria-label="Install Targeting 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/mannequin/transition.gif"
+                        alt="Mannequin 마네킹 설치 위치 탐색 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Install Targeting</strong>
+                      <span>스킬 사용 전 배치 위치와 상황 확인</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="Gameplay System"
+                      data-gallery-title="Install Execution"
+                      data-gallery-description="마네킹 설치 스킬을 사용해 오브젝트를 배치하고 플레이 변수로 활용하는 장면입니다."
+                      aria-label="Install Execution 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/mannequin/install.gif"
+                        alt="Mannequin 마네킹 설치 스킬 실행 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Install Execution</strong>
+                      <span>마네킹 설치 스킬 실행 흐름</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="Gameplay System"
+                      data-gallery-title="Camouflage"
+                      data-gallery-description="마네킹 역할이 주변 환경에 위장해 추격과 회피 상황을 만드는 플레이 장면입니다."
+                      aria-label="Camouflage 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/mannequin/camouflage.gif"
+                        alt="Mannequin 마네킹 위장 스킬 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Camouflage</strong>
+                      <span>환경에 섞여 추격과 회피 변수를 만드는 위장 흐름</span>
+                    </figcaption>
+                  </figure>
+
+                  <figure class="project-detail-ingame__item">
+                    <button
+                      type="button"
+                      class="project-detail-ingame__trigger"
+                      data-gallery-eyebrow="Gameplay System"
+                      data-gallery-title="Derangement"
+                      data-gallery-description="퇴마사 시야와 판단을 흔드는 교란 스킬을 사용해 압박을 만드는 장면입니다."
+                      aria-label="Derangement 전체 영상 보기"
+                    >
+                      <img
+                        src="../../assets/mannequin/derangement.gif"
+                        alt="Mannequin 마네킹 교란 스킬 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>
+                      <strong>Derangement</strong>
+                      <span>상대의 시야와 판단을 흔드는 교란 흐름</span>
+                    </figcaption>
+                  </figure>
+                </div>
               </section>
             </div>
 
@@ -159,11 +454,15 @@
                   </li>
                   <li>
                     <strong>역할</strong>
-                    <span>인프라 주 담당, UI 부 담당</span>
+                    <span>Infrastructure 주 담당, UI 부 담당</span>
+                  </li>
+                  <li>
+                    <strong>유형</strong>
+                    <span>3D 비대칭 PvP 호러 게임</span>
                   </li>
                   <li>
                     <strong>핵심 기여</strong>
-                    <span>세션 흐름, 로딩 UX, CI 운영 정리</span>
+                    <span>세션 흐름, 로딩 UX, Unity CI 검증, 협업 자동화</span>
                   </li>
                 </ul>
               </section>
@@ -205,6 +504,28 @@
               </section>
 
               <section class="project-detail-panel">
+                <h2>Deliverables</h2>
+                <ul class="project-detail-facts">
+                  <li>
+                    <strong>Session Flow</strong>
+                    <span>Photon Fusion 세션 생성·참가·종료 흐름 점검</span>
+                  </li>
+                  <li>
+                    <strong>Loading UX</strong>
+                    <span>역할별 LoadingScene 및 씬 전환 피드백 정리</span>
+                  </li>
+                  <li>
+                    <strong>CI Environment</strong>
+                    <span>EC2 기반 GitLab Runner와 Unity 라이선스 검증</span>
+                  </li>
+                  <li>
+                    <strong>Collaboration</strong>
+                    <span>Mattermost Webhook 기반 커밋 공유 자동화</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
                 <h2>Links</h2>
                 <div class="project-detail-links">
                   <a
@@ -229,6 +550,167 @@
           </div>
         </div>
       </section>
+
+      <div
+        class="project-image-modal"
+        id="mannequin-screen-modal"
+        aria-hidden="true"
+      >
+        <div
+          class="project-image-modal__backdrop"
+          data-gallery-close
+          aria-hidden="true"
+        ></div>
+        <div
+          class="project-image-modal__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mannequin-screen-modal-title"
+          aria-describedby="mannequin-screen-modal-desc"
+        >
+          <header class="project-image-modal__header">
+            <div>
+              <span class="project-image-modal__eyebrow">Gameplay System</span>
+              <h2 id="mannequin-screen-modal-title">Install Targeting</h2>
+              <p id="mannequin-screen-modal-desc"></p>
+            </div>
+            <button
+              type="button"
+              class="project-image-modal__close"
+              data-gallery-close
+              aria-label="모달 닫기"
+            >
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </header>
+
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--prev"
+            data-gallery-prev
+            aria-label="이전 이미지"
+          >
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <div class="project-image-modal__viewport" tabindex="0">
+            <img
+              src="../../assets/mannequin/transition.gif"
+              alt="Mannequin 마네킹 설치 위치 탐색 화면"
+              class="project-image-modal__image"
+            />
+          </div>
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--next"
+            data-gallery-next
+            aria-label="다음 이미지"
+          >
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
     </main>
+
+    <script>
+      (() => {
+        const triggers = Array.from(
+          document.querySelectorAll(
+            ".project-detail-ingame__trigger, .project-detail-gallery__trigger"
+          )
+        );
+        const modal = document.getElementById("mannequin-screen-modal");
+
+        if (!triggers.length || !modal) return;
+
+        const modalEyebrow = modal.querySelector(
+          ".project-image-modal__eyebrow"
+        );
+        const modalTitle = modal.querySelector(
+          "#mannequin-screen-modal-title"
+        );
+        const modalDesc = modal.querySelector("#mannequin-screen-modal-desc");
+        const modalImage = modal.querySelector(".project-image-modal__image");
+        const modalViewport = modal.querySelector(
+          ".project-image-modal__viewport"
+        );
+        const closeButtons = modal.querySelectorAll("[data-gallery-close]");
+        const prevButton = modal.querySelector("[data-gallery-prev]");
+        const nextButton = modal.querySelector("[data-gallery-next]");
+
+        const screens = triggers.map((trigger) => {
+          const image = trigger.querySelector("img");
+          return {
+            eyebrow: trigger.dataset.galleryEyebrow || "Project Screen",
+            title: trigger.dataset.galleryTitle,
+            description: trigger.dataset.galleryDescription,
+            src: image.getAttribute("src"),
+            alt: image.getAttribute("alt"),
+          };
+        });
+
+        let currentIndex = 0;
+        let lastFocusedElement = null;
+
+        const renderScreen = () => {
+          const screen = screens[currentIndex];
+          modalEyebrow.textContent = screen.eyebrow;
+          modalTitle.textContent = screen.title;
+          modalDesc.textContent = screen.description;
+          modalImage.src = screen.src;
+          modalImage.alt = screen.alt;
+          modalViewport.scrollTo({ top: 0, left: 0 });
+        };
+
+        const openModal = (index) => {
+          currentIndex = index;
+          lastFocusedElement = document.activeElement;
+          renderScreen();
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("project-modal-open");
+          modalViewport.focus();
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("project-modal-open");
+          if (lastFocusedElement) {
+            lastFocusedElement.focus();
+          }
+        };
+
+        const move = (direction) => {
+          currentIndex =
+            (currentIndex + direction + screens.length) % screens.length;
+          renderScreen();
+        };
+
+        triggers.forEach((trigger, index) => {
+          trigger.addEventListener("click", () => openModal(index));
+        });
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", closeModal);
+        });
+
+        prevButton.addEventListener("click", () => move(-1));
+        nextButton.addEventListener("click", () => move(1));
+
+        document.addEventListener("keydown", (event) => {
+          if (!modal.classList.contains("is-open")) return;
+
+          if (event.key === "Escape") {
+            closeModal();
+          }
+          if (event.key === "ArrowLeft") {
+            move(-1);
+          }
+          if (event.key === "ArrowRight") {
+            move(1);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

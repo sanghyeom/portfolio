@@ -535,6 +535,16 @@
     }
   }
 
+  .project-detail-gallery__grid--single {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-gallery__grid--single .project-detail-gallery__item img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: rgba($dark-blue-text, 0.04);
+  }
+
   .project-detail-gallery__item {
     overflow: hidden;
     margin: 0;

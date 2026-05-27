@@ -13,7 +13,7 @@
     <title>DDIB | 윤상현 Portfolio</title>
     <meta
       name="description"
-      content="DDIB 실시간 좌석 예매 및 교환 서비스 프로젝트 상세 페이지입니다."
+      content="DDIB 실시간 좌석 예매 및 교환 서비스의 프론트엔드 화면, 좌석 상태 흐름, 대기열, 티켓 확인, 교환 요청 UX를 정리한 프로젝트 상세 페이지입니다."
     />
     <link
       rel="stylesheet"
@@ -35,14 +35,16 @@
               <span class="project-detail-eyebrow">Project Detail</span>
               <h1>DDIB</h1>
               <p class="project-detail-summary">
-                실시간 좌석 예매와 교환 흐름을 다루는 서비스에서 프론트엔드 주요
-                화면과 API 연동 구조를 구현한 프로젝트입니다.
+                실시간 좌석 예매와 좌석 교환을 다루는 티켓팅 서비스에서 공연
+                탐색, 대기열, 좌석 선택, 티켓 확인, 교환 요청까지 이어지는 핵심
+                사용자 흐름과 API 연동 화면을 구현한 프론트엔드 프로젝트입니다.
               </p>
 
               <ul class="project-detail-meta" aria-label="프로젝트 기본 정보">
-                <li>2026.01 ~ 2026.02</li>
-                <li>Frontend</li>
-                <li>React · Spring · Redis · Kafka</li>
+                <li>2026.01 ~ 2026.02 (6주)</li>
+                <li>Frontend · UX Flow · API Integration</li>
+                <li>React · JavaScript · Vite</li>
+                <li>Spring · Redis · Kafka</li>
               </ul>
             </div>
 
@@ -65,130 +67,441 @@
                 <h2>Overview</h2>
                 <div class="project-detail-copy">
                   <p>
-                    DDIB는 좌석 상태 확인, 선택, 예매, 교환 흐름을 실시간으로
-                    연결하는 서비스입니다. 저는 프론트엔드 담당으로 주요 화면과
-                    사용자 흐름을 구현하고, API 연동 과정에서 발생한 화면 연결
-                    이슈를 정리했습니다.
+                    DDIB는 공연 예매부터 보유 티켓 확인, 좌석 교환 요청까지
+                    연결하는 <b>실시간 좌석 예매 및 교환 서비스</b>입니다.
+                    좌석 상태와 대기열처럼 사용자가 민감하게 반응하는 정보를
+                    다루기 때문에, 화면에 표시되는 상태와 실제 서버 상태의
+                    일관성이 중요한 프로젝트였습니다.
                   </p>
                   <p>
-                    단순히 화면을 만드는 것보다 사용자가 좌석 상태를 확인하고
-                    다음 행동으로 자연스럽게 이동할 수 있도록 흐름을 끊기지 않게
-                    만드는 데 집중했습니다.
+                    저는 <b>프론트엔드 담당</b>으로 공연 목록, 공연 상세,
+                    실시간 대기열, 좌석 선택, 내 티켓, 좌석 교환, 마이페이지 등
+                    주요 화면을 구현하고 API 연동 흐름을 정리했습니다.
+                  </p>
+                  <p>
+                    단순히 화면을 배치하는 데 그치지 않고, 사용자가 공연을 찾고
+                    날짜를 선택한 뒤 대기열을 거쳐 좌석을 선택하고, 예매 후 티켓
+                    확인과 교환 요청까지 이어지는 <b>서비스 전체 사용자 여정</b
+                    >이 끊기지 않도록 구성하는 데 집중했습니다.
+                  </p>
+                  <p>
+                    특히 좌석 예매 서비스에서는 사용자가 보는 좌석 가능 여부,
+                    선택 좌석, 결제 금액, 보유 티켓 정보가 신뢰로 이어진다고
+                    판단해 API 응답 상태와 UI 피드백을 분리해 다루며 화면 연결
+                    문제를 빠르게 수정했습니다.
                   </p>
                 </div>
               </section>
 
               <section class="project-detail-block">
-                <h2>My Role</h2>
+                <h2>My Role & Scope</h2>
                 <ul class="project-detail-list">
                   <li>
-                    좌석 예매와 교환 서비스의 주요 프론트엔드 화면을 구현했습니다.
+                    <strong>공연 탐색 및 예매 진입 화면 구현</strong>
+                    <p>
+                      홈, 추천 공연, 공연 상세 화면을 구현하고 날짜/회차 선택 후
+                      예매 플로우로 자연스럽게 이어지도록 화면 동선을 구성했습니다.
+                    </p>
                   </li>
+
                   <li>
-                    좌석 상태 확인, 선택, 예매 진행 과정이 이어지도록 UI와 API
-                    연동 구조를 구성했습니다.
+                    <strong>실시간 대기열과 좌석 선택 흐름 연동</strong>
+                    <p>
+                      대기 순서, 진행률, 입장 안내, 좌석 선택 타이머와 선택 좌석
+                      요약을 연결해 사용자가 현재 단계와 다음 행동을 이해할 수
+                      있도록 구성했습니다.
+                    </p>
                   </li>
+
                   <li>
-                    테스트 과정에서 발견된 기능 동작과 화면 연결 문제를 빠르게
-                    수정하며 서비스 안정성을 높였습니다.
+                    <strong>티켓 확인 및 QR 모달 UX 구현</strong>
+                    <p>
+                      예매 완료 후 사용자가 보유 티켓을 확인하고, QR 코드와 좌석
+                      정보를 모달에서 확인할 수 있도록 티켓 상세 흐름을
+                      구현했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>좌석 교환 요청 화면 및 상태 피드백 정리</strong>
+                    <p>
+                      보유 좌석과 교환 가능한 좌석을 구분하고, 교환 요청 메시지와
+                      선택 상태가 화면에서 명확하게 드러나도록 UI/API 연결 흐름을
+                      정리했습니다.
+                    </p>
                   </li>
                 </ul>
               </section>
 
               <section class="project-detail-block">
-                <h2>Problem & Solution</h2>
+                <h2>Architecture Focus</h2>
                 <div class="project-detail-copy">
-                  <p>
-                    좌석 예매 서비스에서는 사용자가 보는 상태와 실제 서버 상태가
-                    어긋나면 신뢰가 바로 떨어집니다. 그래서 좌석 선택, 예매 진행,
-                    교환 흐름에서 상태 변화가 화면에 자연스럽게 반영되는지를
-                    우선적으로 확인했습니다.
-                  </p>
-                  <p>
-                    API 응답과 UI 상태를 분리해 다루고, 사용자가 다음 행동을
-                    판단해야 하는 지점에서는 화면 피드백이 끊기지 않도록 구성해
-                    예매 흐름의 안정성을 높였습니다.
-                  </p>
+                  <article>
+                    <h3><b>1. Reservation Flow</b></h3>
+                    <p>
+                      <strong>공연 탐색에서 좌석 선택까지의 예매 흐름</strong>은
+                      사용자가 가장 많이 거치는 핵심 동선입니다. 공연 목록,
+                      공연 상세, 날짜/회차 선택, 대기열, 좌석 선택 화면이 서로
+                      분리되어 보이지 않도록 상태 전달과 화면 전환 흐름을
+                      정리했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>2. Real-Time Seat State</b></h3>
+                    <p>
+                      <strong>좌석 상태와 대기열 정보</strong>는 실시간성이
+                      중요한 영역입니다. 프론트엔드에서는 서버 응답을 기준으로
+                      선택 가능, 선택 중, 선택 불가, 선택 완료 상태를 구분하고,
+                      사용자가 다음 행동을 판단할 수 있도록 시각 피드백을
+                      제공했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>3. Ticket / Exchange Experience</b></h3>
+                    <p>
+                      <strong>예매 이후의 티켓 확인과 좌석 교환 흐름</strong>은
+                      서비스 재방문 경험과 연결됩니다. 내 티켓, QR 확인, 예매
+                      내역, 좌석 교환 요청 화면을 연결해 예매 후에도 사용자가
+                      자신의 티켓 상태와 가능한 행동을 확인할 수 있도록
+                      구성했습니다.
+                    </p>
+                  </article>
                 </div>
               </section>
 
               <section class="project-detail-block">
-                <h2>Result</h2>
+                <h2>Challenges & Solution</h2>
                 <div class="project-detail-copy">
+                  <article>
+                    <h3><b>1. 좌석 상태와 화면 상태의 일관성</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      좌석 예매 서비스에서는 사용자가 보는 좌석 가능 여부와 실제
+                      서버 상태가 어긋나면 서비스 신뢰도가 바로 낮아집니다. 특히
+                      선택 가능한 좌석, 이미 선택된 좌석, 선택 불가 좌석이 한
+                      화면에서 명확히 구분되어야 했습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      API 응답 기준으로 좌석 상태를 분리하고,
+                      <strong>색상 범례, 선택 좌석 요약, 결제 금액 표시</strong
+                      >를 함께 구성했습니다. 사용자가 선택한 좌석과 서버에서
+                      내려온 좌석 상태를 혼동하지 않도록 화면 피드백을 정리했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>2. 대기열에서 좌석 선택으로 이어지는 흐름</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      실시간 대기열은 사용자가 페이지를 새로고침하거나 이탈하지
+                      않고 기다려야 하는 구간입니다. 대기 순서와 진행 상태가
+                      불명확하면 사용자는 시스템이 멈췄다고 느낄 수 있었습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      <strong>현재 대기 순서, 진행률, 총 대기 인원, 안내 문구</strong
+                      >를 함께 노출해 사용자가 현재 위치를 이해할 수 있도록
+                      구성했습니다. 순서가 도달하면 좌석 선택 페이지로 이어지는
+                      흐름을 전제로 화면 상태를 정리했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>3. 티켓 확인과 교환 요청의 정보 구조</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      예매 이후에는 사용자가 보유한 티켓, QR 코드, 좌석 정보,
+                      교환 가능한 좌석, 교환 요청 메시지를 한 흐름 안에서 확인할
+                      수 있어야 했습니다. 정보가 흩어지면 사용자가 다음 행동을
+                      판단하기 어려웠습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      내 티켓 화면과 QR 모달, 좌석 교환 화면을 각각 역할별로
+                      분리했습니다. 티켓 확인은 입장 정보 중심으로, 교환 화면은
+                      <strong>보유 좌석·교환 가능 좌석·교환 요청 상태</strong>를
+                      중심으로 구성해 흐름을 명확히 했습니다.
+                    </p>
+                  </article>
+
+                  <hr />
+
+                  <article>
+                    <h3><b>4. 테스트 중 발견되는 화면 연결 이슈 대응</b></h3>
+
+                    <h4>Challenge</h4>
+                    <p>
+                      예매 서비스는 여러 화면이 순차적으로 연결되기 때문에, 작은
+                      API 응답 차이나 상태 누락도 다음 화면의 오류로 이어질 수
+                      있었습니다.
+                    </p>
+
+                    <h4>Solution</h4>
+                    <p>
+                      테스트 과정에서 발견된 기능 동작과 화면 연결 문제를
+                      우선순위에 따라 빠르게 수정했습니다. 화면별 상태를
+                      독립적으로 점검하면서도, 전체 예매/교환 흐름이 끊기지
+                      않는지를 기준으로 안정성을 높였습니다.
+                    </p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Technical Highlights</h2>
+                <ul class="project-detail-list">
+                  <li>
+                    <strong>React/Vite 기반 주요 화면 구현</strong>
+                    <p>
+                      홈, 공연 목록, 공연 상세, 대기열, 좌석 선택, 내 티켓,
+                      좌석 교환, 마이페이지 등 서비스 핵심 화면을 구현했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>좌석 상태 기반 UI 구성</strong>
+                    <p>
+                      선택 가능, 선택 중, 선택 불가, 선택 완료 상태를 구분하고
+                      선택 좌석 수와 총 결제 금액이 즉시 확인되도록 구성했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>대기열 상태 피드백</strong>
+                    <p>
+                      실시간 대기 순서, 진행률, 총 대기 인원, 시스템 상태 안내를
+                      함께 보여줘 사용자가 현재 상태를 이해할 수 있도록 했습니다.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>티켓/교환 후속 흐름 연결</strong>
+                    <p>
+                      예매 이후 QR 티켓 확인, 예매 내역 관리, 좌석 교환 요청까지
+                      연결해 단일 예매 화면을 넘어 서비스 이용 흐름을 완성했습니다.
+                    </p>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-block">
+                <h2>Result & Retrospective</h2>
+                <div class="project-detail-copy">
+                  <h3><b>Result</b></h3>
                   <p>
-                    최종적으로 좌석 상태 확인부터 예매와 교환으로 이어지는 핵심
-                    사용자 흐름을 완성했고, 테스트 중 발견된 연결 이슈를 대응하며
-                    실제 시연 가능한 수준으로 화면 안정성을 끌어올렸습니다.
+                    공연 탐색부터 대기열, 좌석 선택, 티켓 확인, 좌석 교환 요청,
+                    마이페이지 예매 내역까지 이어지는 핵심 프론트엔드 흐름을
+                    완성했습니다. 테스트 중 발견된 연결 이슈를 대응하며 실제 시연
+                    가능한 수준으로 화면 안정성을 높였습니다.
+                  </p>
+
+                  <hr />
+
+                  <h3><b>Impact</b></h3>
+                  <p>
+                    사용자는 공연을 탐색하고, 날짜와 회차를 선택한 뒤, 대기열을
+                    거쳐 좌석을 선택하고, 예매 이후 티켓과 교환 가능성을 확인할
+                    수 있는 하나의 서비스 흐름을 경험할 수 있게 되었습니다.
+                  </p>
+
+                  <p>
+                    또한 좌석 상태와 티켓 정보가 화면에서 명확히 구분되도록
+                    정리하면서, 실시간 예매 서비스에서 중요한 신뢰성과 다음 행동
+                    판단을 돕는 UX를 확보했습니다.
+                  </p>
+
+                  <hr />
+
+                  <h3><b>Retrospective</b></h3>
+                  <p>
+                    이 프로젝트를 통해 예매 서비스의 프론트엔드는 예쁜 화면보다
+                    <strong>상태의 정확성, 화면 간 연결, 사용자의 다음 행동 판단</strong
+                    >이 더 중요하다는 점을 경험했습니다.
+                  </p>
+
+                  <p>
+                    이후에는 실시간 좌석 상태 갱신, 중복 선택 방지, 결제 실패와
+                    재진입 같은 예외 흐름까지 더 촘촘하게 다루는 방향으로
+                    발전시키고 싶습니다.
                   </p>
                 </div>
               </section>
 
               <section class="project-detail-block project-detail-gallery">
-                <h2>주요 화면</h2>
+                <h2>Service Flow Screens</h2>
+                <p class="project-detail-note">
+                  DDIB에서 구현한 주요 프론트엔드 화면입니다. 공연 탐색, 예매
+                  진입, 실시간 대기열, 좌석 선택, 티켓 확인, 좌석 교환까지
+                  사용자가 실제로 지나가는 흐름을 기준으로 정리했습니다.
+                </p>
                 <div class="project-detail-gallery__grid">
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_1.webp"
-                      alt="DDIB 화면 1"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Landing"
+                      data-gallery-description="서비스 가치와 주요 기능을 소개하고 공연 탐색 또는 로그인으로 진입할 수 있는 랜딩 화면입니다."
+                      aria-label="Landing 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_1.webp"
+                        alt="DDIB 랜딩 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Landing</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_2.webp"
-                      alt="DDIB 화면 2"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Performance Lineup"
+                      data-gallery-description="추천 공연과 주목 공연을 카드 형태로 보여주고 상세/교환 흐름으로 이동할 수 있는 홈 화면입니다."
+                      aria-label="Performance Lineup 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_2.webp"
+                        alt="DDIB 공연 추천 라인업 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Performance Lineup</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_3.webp"
-                      alt="DDIB 화면 3"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Reservation Detail"
+                      data-gallery-description="공연 정보, 날짜 선택, 가격 정보, 예매 버튼을 한 화면에서 확인하는 공연 상세 화면입니다."
+                      aria-label="Reservation Detail 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_3.webp"
+                        alt="DDIB 공연 상세 및 날짜 선택 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Reservation Detail</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_4.webp"
-                      alt="DDIB 화면 4"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Real-Time Queue"
+                      data-gallery-description="현재 대기 순서, 진행률, 총 대기 인원과 안내 사항을 제공하는 실시간 대기열 화면입니다."
+                      aria-label="Real-Time Queue 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_4.webp"
+                        alt="DDIB 실시간 대기열 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Real-Time Queue</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_5.webp"
-                      alt="DDIB 화면 5"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Seat Selection"
+                      data-gallery-description="좌석 등급과 선택 가능 상태를 구분하고, 선택 좌석과 결제 금액을 함께 보여주는 좌석 선택 화면입니다."
+                      aria-label="Seat Selection 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_5.webp"
+                        alt="DDIB 좌석 선택 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Seat Selection</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_6.webp"
-                      alt="DDIB 화면 6"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Ticket QR"
+                      data-gallery-description="예매한 티켓의 QR 코드, 공연장, 좌석, 예매번호를 모달에서 확인하는 티켓 상세 화면입니다."
+                      aria-label="Ticket QR 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_6.webp"
+                        alt="DDIB 티켓 QR 모달 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Ticket QR</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_7.webp"
-                      alt="DDIB 화면 7"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="Seat Exchange"
+                      data-gallery-description="보유 좌석과 교환 가능 좌석을 확인하고 메시지를 작성해 좌석 교환을 요청하는 화면입니다."
+                      aria-label="Seat Exchange 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_7.webp"
+                        alt="DDIB 좌석 교환 요청 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>Seat Exchange</figcaption>
                   </figure>
+
                   <figure class="project-detail-gallery__item">
-                    <img
-                      src="../../assets/ddib/ddib_8.webp"
-                      alt="DDIB 화면 8"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <button
+                      type="button"
+                      class="project-detail-gallery__trigger"
+                      data-gallery-eyebrow="Service Flow"
+                      data-gallery-title="My Page"
+                      data-gallery-description="사용자가 예매 내역과 계정 메뉴를 확인하고 예약 취소 등 후속 행동을 수행하는 마이페이지 화면입니다."
+                      aria-label="My Page 전체 이미지 보기"
+                    >
+                      <img
+                        src="../../assets/ddib/ddib_8.webp"
+                        alt="DDIB 마이페이지 예매 내역 화면"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </button>
+                    <figcaption>My Page</figcaption>
                   </figure>
                 </div>
               </section>
@@ -204,11 +517,15 @@
                   </li>
                   <li>
                     <strong>역할</strong>
-                    <span>프론트엔드 구현 및 화면 연결 안정화</span>
+                    <span>Frontend</span>
+                  </li>
+                  <li>
+                    <strong>유형</strong>
+                    <span>실시간 좌석 예매 및 교환 서비스</span>
                   </li>
                   <li>
                     <strong>핵심 기여</strong>
-                    <span>좌석 상태, 예매, 교환 흐름의 UI/API 연결</span>
+                    <span>좌석 상태, 대기열, 티켓, 교환 흐름의 UI/API 연결</span>
                   </li>
                 </ul>
               </section>
@@ -283,6 +600,32 @@
               </section>
 
               <section class="project-detail-panel">
+                <h2>Deliverables</h2>
+                <ul class="project-detail-facts">
+                  <li>
+                    <strong>Reservation</strong>
+                    <span>공연 상세, 날짜/회차 선택, 예매 진입 화면</span>
+                  </li>
+                  <li>
+                    <strong>Queue</strong>
+                    <span>실시간 대기열 상태와 안내 화면</span>
+                  </li>
+                  <li>
+                    <strong>Seat Map</strong>
+                    <span>좌석 상태, 선택 좌석, 결제 금액 표시</span>
+                  </li>
+                  <li>
+                    <strong>Ticket</strong>
+                    <span>내 티켓, QR 모달, 예매 내역 화면</span>
+                  </li>
+                  <li>
+                    <strong>Exchange</strong>
+                    <span>좌석 교환 요청 및 상태 확인 화면</span>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="project-detail-panel">
                 <h2>Links</h2>
                 <div class="project-detail-links">
                   <a
@@ -299,6 +642,161 @@
           </div>
         </div>
       </section>
+
+      <div class="project-image-modal" id="ddib-screen-modal" aria-hidden="true">
+        <div
+          class="project-image-modal__backdrop"
+          data-gallery-close
+          aria-hidden="true"
+        ></div>
+        <div
+          class="project-image-modal__dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="ddib-screen-modal-title"
+          aria-describedby="ddib-screen-modal-desc"
+        >
+          <header class="project-image-modal__header">
+            <div>
+              <span class="project-image-modal__eyebrow">Service Flow</span>
+              <h2 id="ddib-screen-modal-title">Landing</h2>
+              <p id="ddib-screen-modal-desc"></p>
+            </div>
+            <button
+              type="button"
+              class="project-image-modal__close"
+              data-gallery-close
+              aria-label="모달 닫기"
+            >
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </header>
+
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--prev"
+            data-gallery-prev
+            aria-label="이전 이미지"
+          >
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <div class="project-image-modal__viewport" tabindex="0">
+            <img
+              src="../../assets/ddib/ddib_1.webp"
+              alt="DDIB 랜딩 화면"
+              class="project-image-modal__image"
+            />
+          </div>
+          <button
+            type="button"
+            class="project-image-modal__nav project-image-modal__nav--next"
+            data-gallery-next
+            aria-label="다음 이미지"
+          >
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
     </main>
+
+    <script>
+      (() => {
+        const triggers = Array.from(
+          document.querySelectorAll(
+            ".project-detail-ingame__trigger, .project-detail-gallery__trigger"
+          )
+        );
+        const modal = document.getElementById("ddib-screen-modal");
+
+        if (!triggers.length || !modal) return;
+
+        const modalEyebrow = modal.querySelector(
+          ".project-image-modal__eyebrow"
+        );
+        const modalTitle = modal.querySelector("#ddib-screen-modal-title");
+        const modalDesc = modal.querySelector("#ddib-screen-modal-desc");
+        const modalImage = modal.querySelector(".project-image-modal__image");
+        const modalViewport = modal.querySelector(
+          ".project-image-modal__viewport"
+        );
+        const closeButtons = modal.querySelectorAll("[data-gallery-close]");
+        const prevButton = modal.querySelector("[data-gallery-prev]");
+        const nextButton = modal.querySelector("[data-gallery-next]");
+
+        const screens = triggers.map((trigger) => {
+          const image = trigger.querySelector("img");
+          return {
+            eyebrow: trigger.dataset.galleryEyebrow || "Project Screen",
+            title: trigger.dataset.galleryTitle,
+            description: trigger.dataset.galleryDescription,
+            src: image.getAttribute("src"),
+            alt: image.getAttribute("alt"),
+          };
+        });
+
+        let currentIndex = 0;
+        let lastFocusedElement = null;
+
+        const renderScreen = () => {
+          const screen = screens[currentIndex];
+          modalEyebrow.textContent = screen.eyebrow;
+          modalTitle.textContent = screen.title;
+          modalDesc.textContent = screen.description;
+          modalImage.src = screen.src;
+          modalImage.alt = screen.alt;
+          modalViewport.scrollTo({ top: 0, left: 0 });
+        };
+
+        const openModal = (index) => {
+          currentIndex = index;
+          lastFocusedElement = document.activeElement;
+          renderScreen();
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("project-modal-open");
+          modalViewport.focus();
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("project-modal-open");
+          if (lastFocusedElement) {
+            lastFocusedElement.focus();
+          }
+        };
+
+        const move = (direction) => {
+          currentIndex =
+            (currentIndex + direction + screens.length) % screens.length;
+          renderScreen();
+        };
+
+        triggers.forEach((trigger, index) => {
+          trigger.addEventListener("click", () => openModal(index));
+        });
+
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", closeModal);
+        });
+
+        prevButton.addEventListener("click", () => move(-1));
+        nextButton.addEventListener("click", () => move(1));
+
+        document.addEventListener("keydown", (event) => {
+          if (!modal.classList.contains("is-open")) return;
+
+          if (event.key === "Escape") {
+            closeModal();
+          }
+          if (event.key === "ArrowLeft") {
+            move(-1);
+          }
+          if (event.key === "ArrowRight") {
+            move(1);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
