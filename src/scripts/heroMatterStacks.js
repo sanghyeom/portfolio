@@ -19,6 +19,20 @@ const EXTRA_GRAVITY_SCALE = 0.00018;
 
 const BASE_TECH_STACKS = [
   {
+    id: "java",
+    label: "Java",
+    color: "#f89820",
+    iconSrc: new URL("../assets/tech-icons/java.png", import.meta.url).href,
+    weight: 1.08,
+  },
+  {
+    id: "springboot",
+    label: "Spring Boot",
+    color: "#6db33f",
+    iconSrc: new URL("../assets/tech-icons/springboot.png", import.meta.url).href,
+    weight: 1.12,
+  },
+  {
     id: "react",
     label: "React",
     color: "#61dafb",
@@ -33,11 +47,25 @@ const BASE_TECH_STACKS = [
     weight: 0.9,
   },
   {
-    id: "springboot",
-    label: "Spring",
-    color: "#6db33f",
-    iconSrc: new URL("../assets/tech-icons/springboot.png", import.meta.url).href,
-    weight: 1.12,
+    id: "unity",
+    label: "Unity",
+    color: "#111827",
+    iconSrc: new URL("../assets/tech-icons/unity.png", import.meta.url).href,
+    weight: 1.04,
+  },
+  {
+    id: "python",
+    label: "Python",
+    color: "#3776ab",
+    iconSrc: new URL("../assets/tech-icons/python.png", import.meta.url).href,
+    weight: 0.95,
+  },
+  {
+    id: "openai",
+    label: "OpenAI API",
+    color: "#10a37f",
+    iconSrc: new URL("../assets/tech-icons/openai.png", import.meta.url).href,
+    weight: 1.02,
   },
   {
     id: "mysql",
@@ -47,18 +75,25 @@ const BASE_TECH_STACKS = [
     weight: 1.08,
   },
   {
+    id: "sql",
+    label: "SQL",
+    color: "#2563eb",
+    iconSrc: new URL("../assets/tech-icons/sql.png", import.meta.url).href,
+    weight: 1.18,
+  },
+  {
+    id: "redis",
+    label: "Redis",
+    color: "#dc382d",
+    iconSrc: new URL("../assets/tech-icons/Redis.png", import.meta.url).href,
+    weight: 1.1,
+  },
+  {
     id: "docker",
     label: "Docker",
     color: "#2496ed",
     iconSrc: new URL("../assets/tech-icons/docker.png", import.meta.url).href,
     weight: 1.0,
-  },
-  {
-    id: "python",
-    label: "Python",
-    color: "#3776ab",
-    iconSrc: new URL("../assets/tech-icons/python.png", import.meta.url).href,
-    weight: 0.95,
   },
   {
     id: "linux",
@@ -75,11 +110,19 @@ const BASE_TECH_STACKS = [
     weight: 0.88,
   },
   {
-    id: "sql",
-    label: "SQL",
-    color: "#2563eb",
-    iconSrc: new URL("../assets/tech-icons/sql.png", import.meta.url).href,
-    weight: 1.22,
+    id: "aws",
+    label: "AWS",
+    color: "#ff9900",
+    iconSrc: new URL("../assets/tech-icons/aws.png", import.meta.url).href,
+    weight: 1.05,
+  },
+  {
+    id: "kafka",
+    label: "Kafka",
+    color: "#231f20",
+    iconSrc: new URL("../assets/tech-icons/Apache_Kafka.png", import.meta.url)
+      .href,
+    weight: 1.14,
   },
   {
     id: "websocket",
@@ -87,6 +130,20 @@ const BASE_TECH_STACKS = [
     color: "#111827",
     iconSrc: new URL("../assets/tech-icons/websocket.png", import.meta.url).href,
     weight: 1.14,
+  },
+  {
+    id: "django",
+    label: "Django",
+    color: "#092e20",
+    iconSrc: new URL("../assets/tech-icons/django.png", import.meta.url).href,
+    weight: 1.08,
+  },
+  {
+    id: "vue",
+    label: "Vue.js",
+    color: "#42b883",
+    iconSrc: new URL("../assets/tech-icons/vue.png", import.meta.url).href,
+    weight: 0.92,
   },
 ];
 
@@ -143,7 +200,7 @@ const getTargetBodyCount = () => {
     bodyCount -= 2;
   }
 
-  return Math.max(10, bodyCount);
+  return Math.max(BASE_TECH_STACKS.length, bodyCount);
 };
 
 const createWalls = (width, height) => [
