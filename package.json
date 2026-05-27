@@ -4,8 +4,8 @@
   "private": true,
   "description": "윤상현 개인 포트폴리오 정적 웹사이트",
   "scripts": {
-    "start": "parcel src/index.html src/projects/hater/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/Gridsol_SCADA/index.html --no-cache",
-    "build": "parcel build src/index.html src/projects/hater/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/Gridsol_SCADA/index.html --public-url ./ --no-cache"
+    "start": "parcel src/index.html src/projects/hater/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/industrial-scada/index.html --no-cache",
+    "build": "parcel build src/index.html src/projects/hater/index.html src/projects/mannequin/index.html src/projects/ddib/index.html src/projects/pollin/index.html src/career/industrial-scada/index.html --public-url ./ --no-cache"
   },
   "repository": {
     "type": "git",
