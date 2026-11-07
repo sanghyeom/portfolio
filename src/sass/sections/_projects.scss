@@ -559,6 +559,21 @@
     background: rgba($dark-blue-text, 0.04);
   }
 
+  // 세로형(모바일 캡처, 숏폼 영상 스틸)처럼 16:10 가로 비율에 맞지 않는 갤러리용
+  .project-detail-gallery__grid--portrait {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .project-detail-gallery__grid--portrait .project-detail-gallery__item img {
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    object-position: top center;
+  }
+
   .project-detail-gallery__item {
     overflow: hidden;
     margin: 0;
